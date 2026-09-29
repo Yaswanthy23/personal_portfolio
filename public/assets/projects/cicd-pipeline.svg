@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="100%" height="100%" fill="none">
+  <rect width="600" height="340" rx="12" fill="#0E172A" />
+  <rect x="0.5" y="0.5" width="599" height="339" rx="11.5" stroke="#263449" />
+  
+  <defs>
+    <pattern id="gridCiCd" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#1E293B" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="340" fill="url(#gridCiCd)" opacity="0.6"/>
+
+  <!-- Top bar -->
+  <rect x="20" y="20" width="560" height="36" rx="6" fill="#172033" stroke="#263449" />
+  <circle cx="42" cy="38" r="5" fill="#EF4444" />
+  <circle cx="58" cy="38" r="5" fill="#F59E0B" />
+  <circle cx="74" cy="38" r="5" fill="#22C55E" />
+  <text x="96" y="42" fill="#94A3B8" font-family="monospace" font-size="12">pipeline-run #482 // branch: main // commit: c7b81f9</text>
+  <rect x="475" y="27" width="90" height="22" rx="4" fill="#22C55E" fill-opacity="0.15" stroke="#22C55E" stroke-width="0.5"/>
+  <text x="492" y="42" fill="#22C55E" font-family="monospace" font-size="11" font-weight="600">PASSED</text>
+
+  <!-- Flow Line -->
+  <path d="M 80 180 L 520 180" stroke="#263449" stroke-width="4" stroke-linecap="round" />
+  <path d="M 80 180 L 460 180" stroke="#FF9900" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Stage 1: Commit -->
+  <circle cx="80" cy="180" r="18" fill="#172033" stroke="#FF9900" stroke-width="2" />
+  <text x="73" y="185" fill="#FF9900" font-family="monospace" font-size="12" font-weight="bold">git</text>
+  <text x="80" y="220" text-anchor="middle" fill="#F8FAFC" font-family="sans-serif" font-size="11" font-weight="600">Source</text>
+  <text x="80" y="235" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="10">GitHub</text>
+
+  <!-- Stage 2: Test & Lint -->
+  <circle cx="190" cy="180" r="18" fill="#172033" stroke="#FF9900" stroke-width="2" />
+  <text x="184" y="185" fill="#22C55E" font-family="monospace" font-size="13">✓</text>
+  <text x="190" y="220" text-anchor="middle" fill="#F8FAFC" font-family="sans-serif" font-size="11" font-weight="600">Validation</text>
+  <text x="190" y="235" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="10">Lint + Tests</text>
+
+  <!-- Stage 3: Build & Sec -->
+  <circle cx="300" cy="180" r="18" fill="#172033" stroke="#FF9900" stroke-width="2" />
+  <text x="294" y="185" fill="#22C55E" font-family="monospace" font-size="13">✓</text>
+  <text x="300" y="220" text-anchor="middle" fill="#F8FAFC" font-family="sans-serif" font-size="11" font-weight="600">Docker Build</text>
+  <text x="300" y="235" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="10">Trivy Scan</text>
+
+  <!-- Stage 4: ECR Push -->
+  <circle cx="410" cy="180" r="18" fill="#172033" stroke="#FF9900" stroke-width="2" />
+  <text x="404" y="185" fill="#22C55E" font-family="monospace" font-size="13">✓</text>
+  <text x="410" y="220" text-anchor="middle" fill="#F8FAFC" font-family="sans-serif" font-size="11" font-weight="600">Artifact</text>
+  <text x="410" y="235" text-anchor="middle" fill="#94A3B8" font-family="monospace" font-size="10">AWS ECR</text>
+
+  <!-- Stage 5: Deploy -->
+  <circle cx="520" cy="180" r="18" fill="#172033" stroke="#22D3EE" stroke-width="2" />
+  <text x="514" y="185" fill="#22D3EE" font-family="monospace" font-size="13">🚀</text>
+  <text x="520" y="220" text-anchor="middle" fill="#F8FAFC" font-family="sans-serif" font-size="11" font-weight="600">Deploy</text>
+  <text x="520" y="235" text-anchor="middle" fill="#22D3EE" font-family="monospace" font-size="10">EKS Rolling</text>
+
+  <!-- Micro cards -->
+  <rect x="130" y="85" width="160" height="40" rx="6" fill="#172033" stroke="#263449" />
+  <text x="145" y="103" fill="#94A3B8" font-family="monospace" font-size="10">Duration: 2m 45s</text>
+  <text x="145" y="117" fill="#22C55E" font-family="monospace" font-size="10">0 Vulnerabilities Found</text>
+
+  <rect x="310" y="85" width="160" height="40" rx="6" fill="#172033" stroke="#263449" />
+  <text x="325" y="103" fill="#94A3B8" font-family="monospace" font-size="10">Target: us-east-1</text>
+  <text x="325" y="117" fill="#22D3EE" font-family="monospace" font-size="10">Zero-downtime Blue/Green</text>
+</svg>
