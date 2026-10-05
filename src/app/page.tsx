@@ -3,36 +3,48 @@ import { Navbar } from '@/components/common/Navbar';
 import { Footer } from '@/components/common/Footer';
 import { ScrollToTop } from '@/components/common/ScrollToTop';
 import { Hero } from '@/components/sections/Hero';
-import { TechStack } from '@/components/sections/TechStack';
-import { AboutPreview } from '@/components/sections/AboutPreview';
-import { FeaturedProjects } from '@/components/sections/FeaturedProjects';
-import { ContactCTA } from '@/components/sections/ContactCTA';
+import { About } from '@/components/sections/About';
+import { Experience } from '@/components/sections/Experience';
+import { Projects } from '@/components/sections/Projects';
+import { Engineering } from '@/components/sections/Engineering';
+import { Troubleshooting } from '@/components/sections/Troubleshooting';
+import { Technologies } from '@/components/sections/Technologies';
+import { Contact } from '@/components/sections/Contact';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#0B1120] text-[#F8FAFC]">
-      {/* Sticky Header Navigation */}
+    <div className="flex min-h-screen flex-col bg-[#070B14] text-[#F8FAFC]">
+      {/* Sticky Minimal Navigation */}
       <Navbar />
 
       {/* Main Content Sections */}
       <main id="main-content" className="flex-1">
-        {/* Hero Section */}
+        {/* 01 — Hero */}
         <Hero />
 
-        {/* Tech Stack Categories */}
-        <TechStack />
+        {/* 02 — About */}
+        <About />
 
-        {/* About Preview */}
-        <AboutPreview />
+        {/* 03 — Experience */}
+        <Experience />
 
-        {/* Featured Work Preview */}
-        <FeaturedProjects />
+        {/* 04 — Projects */}
+        <Projects />
 
-        {/* Contact CTA */}
-        <ContactCTA />
+        {/* 05 — Engineering & Interactive Architecture */}
+        <Engineering />
+
+        {/* 06 — Troubleshooting */}
+        <Troubleshooting />
+
+        {/* 07 — Technologies */}
+        <Technologies />
+
+        {/* 08 — Resume & Contact */}
+        <Contact />
       </main>
 
-      {/* Footer */}
+      {/* Minimal Footer */}
       <Footer />
 
       {/* Utility Scroll To Top */}

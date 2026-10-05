@@ -1,22 +1,24 @@
 'use client';
 
 import React from 'react';
-import { ArrowDown, ExternalLink, CheckCircle } from 'lucide-react';
-import { GitHubIcon } from '@/components/ui/Icons';
+import { ArrowDown, FileText, Mail } from 'lucide-react';
+import { GitHubIcon, LinkedInIcon } from '@/components/ui/Icons';
 import { profileData } from '@/data/profile';
 import { socialLinks } from '@/data/social';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { TerminalPrompt } from '@/components/ui/TerminalPrompt';
-import { HeroArchitectureVisual } from '@/components/visual/HeroArchitectureVisual';
+import { TypingIntroduction } from '@/components/ui/TypingIntroduction';
+import { ProfileImage } from '@/components/ui/ProfileImage';
+import { InfrastructureBackground } from '@/components/visual/InfrastructureBackground';
 
 export const Hero: React.FC = () => {
   const githubLink = socialLinks.find((s) => s.id === 'github')?.href || '#';
+  const linkedinLink = socialLinks.find((s) => s.id === 'linkedin')?.href || '#';
+  const emailLink = socialLinks.find((s) => s.id === 'email')?.href || '#';
 
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const handleScrollToProjects = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const element = document.getElementById(targetId);
+    const element = document.getElementById('projects');
     if (element) {
       const offset = 80;
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -34,108 +36,111 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] flex items-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden tech-grid-bg"
+      className="relative min-h-[92vh] flex items-center pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#070B14] engineering-grid"
     >
-      {/* Subtle radial lighting */}
-      <div 
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#FF9900]/5 rounded-full blur-3xl pointer-events-none" 
-        aria-hidden="true" 
+      {/* Layer 3 — Subtle Ambient Lighting */}
+      <div
+        className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] ambient-glow-orange rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
       />
-      <div 
-        className="absolute top-1/3 right-10 w-[400px] h-[300px] bg-[#22D3EE]/5 rounded-full blur-3xl pointer-events-none" 
-        aria-hidden="true" 
+      <div
+        className="absolute top-1/3 right-10 w-[450px] h-[300px] ambient-glow-cyan rounded-full blur-3xl pointer-events-none"
+        aria-hidden="true"
       />
+
+      {/* Infrastructure Network Topology Background */}
+      <InfrastructureBackground />
 
       <Container size="lg" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Hero Content */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Terminal status bar */}
-            <div className="flex items-center gap-3">
-              <Badge variant="orange" size="sm" dot>
-                {profileData.role.toUpperCase()}
-              </Badge>
-              <span className="hidden sm:inline-block text-xs font-mono text-[#94A3B8]">
-                us-east-1 // ACTIVE
+          
+          {/* Left Column: Personal Introduction & CTAs */}
+          <div className="lg:col-span-7 space-y-6 text-left order-2 lg:order-1">
+            
+            {/* Small Eyebrow */}
+            <div className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#FF9900]" />
+              <span className="font-mono text-xs font-semibold tracking-wider text-[#FF9900] uppercase">
+                {profileData.eyebrow}
               </span>
             </div>
 
-            {/* Subtle Terminal Whoami Prompt */}
-            <TerminalPrompt
-              command={profileData.terminalWhoami.command}
-              user="yaswanth"
-              host="devops"
-            />
-
-            {/* Main Headline */}
-            <div className="space-y-3">
+            {/* Main Greeting & Typing Introduction */}
+            <div className="space-y-4">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F8FAFC]">
                 Engineering Scalable, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] via-[#F8FAFC] to-[#22D3EE]">
                   Automated Cloud Systems.
                 </span>
               </h1>
-              <p className="text-base sm:text-lg text-[#94A3B8] max-w-xl leading-relaxed">
-                {profileData.terminalWhoami.tagline} Focused on Infrastructure as Code, Kubernetes clusters, and zero-downtime CI/CD pipelines.
-              </p>
+
+              {/* Word-by-word Typing Introduction */}
+              <TypingIntroduction
+                text={profileData.heroIntroduction}
+                className="text-base sm:text-lg text-[#94A3B8] max-w-xl leading-relaxed font-normal"
+              />
             </div>
 
-            {/* Technology Keywords Pills */}
-            <div className="flex flex-wrap items-center gap-2 pt-1">
-              {profileData.heroKeywords.map((tech) => (
-                <span
-                  key={tech}
-                  className="inline-flex items-center text-xs font-mono px-3 py-1 rounded bg-[#172033] border border-[#263449] text-[#F8FAFC] hover:border-[#FF9900]/40 transition-colors"
-                >
-                  <span className="text-[#FF9900] mr-1.5">•</span>
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Call to Actions */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            {/* Two Primary CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-3">
               <a
                 href="#projects"
-                onClick={(e) => handleScrollTo(e, 'projects')}
-                className="inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900] rounded-md cursor-pointer text-sm px-5 py-3 gap-2 bg-[#FF9900] text-[#0B1120] font-semibold hover:bg-[#E08700] active:scale-[0.98] shadow-sm hover:shadow-[0_0_20px_rgba(255,153,0,0.3)]"
+                onClick={handleScrollToProjects}
+                className="inline-flex items-center justify-center text-sm font-semibold px-6 py-3 gap-2 bg-[#FF9900] text-[#070B14] rounded-lg hover:bg-[#E08700] hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-sm"
               >
-                <span>Explore My Work</span>
+                <span>View My Work</span>
                 <ArrowDown className="h-4 w-4" />
               </a>
 
               <Button
                 variant="secondary"
                 size="md"
-                href={githubLink}
+                href={profileData.resumeUrl}
                 isExternal
-                leftIcon={<GitHubIcon className="h-4 w-4" />}
-                rightIcon={<ExternalLink className="h-3.5 w-3.5 text-[#64748B]" />}
+                leftIcon={<FileText className="h-4 w-4 text-[#94A3B8]" />}
               >
-                GitHub Profile
+                Download Resume
               </Button>
             </div>
 
-            {/* Reliability Highlights */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-4 border-t border-[#263449]/70 max-w-lg">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-[#22C55E] shrink-0" />
-                <span className="text-xs font-mono text-[#94A3B8]">IaC Driven</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-[#22C55E] shrink-0" />
-                <span className="text-xs font-mono text-[#94A3B8]">EKS Production</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-[#22C55E] shrink-0" />
-                <span className="text-xs font-mono text-[#94A3B8]">Security First</span>
-              </div>
+            {/* Secondary Social Links */}
+            <div className="flex items-center gap-6 pt-4 text-xs font-mono text-[#64748B] border-t border-[#1E293B]/60 max-w-lg">
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-[#F8FAFC] transition-colors"
+                aria-label="GitHub"
+              >
+                <GitHubIcon className="h-3.5 w-3.5 text-[#94A3B8]" />
+                <span>GitHub</span>
+              </a>
+              <span>•</span>
+              <a
+                href={linkedinLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-[#F8FAFC] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon className="h-3.5 w-3.5 text-[#94A3B8]" />
+                <span>LinkedIn</span>
+              </a>
+              <span>•</span>
+              <a
+                href={emailLink}
+                className="flex items-center gap-1.5 hover:text-[#F8FAFC] transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="h-3.5 w-3.5 text-[#94A3B8]" />
+                <span>Email</span>
+              </a>
             </div>
           </div>
 
-          {/* Right Column: Technical Architecture Visual */}
-          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
-            <HeroArchitectureVisual />
+          {/* Right Column: Clean Profile Image Composition */}
+          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end order-1 lg:order-2">
+            <ProfileImage />
           </div>
         </div>
       </Container>
