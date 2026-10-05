@@ -233,7 +233,7 @@ export const InfrastructureBackground: React.FC = () => {
           const nodeB = nodes[conn.to];
           if (!nodeA || !nodeB) return;
 
-          const baseOpacity = 0.18 * lineAlphaProgress;
+          const baseOpacity = 0.10 * lineAlphaProgress;
           ctx.beginPath();
           ctx.moveTo(nodeA.x, nodeA.y);
           ctx.lineTo(nodeB.x, nodeB.y);
@@ -259,14 +259,14 @@ export const InfrastructureBackground: React.FC = () => {
           const curY = fromNode.y + (toNode.y - fromNode.y) * packet.progress;
 
           // Packet glow and core
-          const packetAlpha = Math.sin(packet.progress * Math.PI) * 0.85;
+          const packetAlpha = Math.sin(packet.progress * Math.PI) * 0.55;
 
           ctx.beginPath();
           ctx.arc(curX, curY, packet.size, 0, Math.PI * 2);
           ctx.fillStyle = packet.color;
           ctx.globalAlpha = packetAlpha;
           ctx.shadowColor = packet.color;
-          ctx.shadowBlur = 6;
+          ctx.shadowBlur = 4;
           ctx.fill();
 
           // Reset shadow & globalAlpha
@@ -285,12 +285,12 @@ export const InfrastructureBackground: React.FC = () => {
 
           if (node.isAccent) {
             ctx.fillStyle = node.color;
-            ctx.globalAlpha = 0.85 * nodeAlphaProgress;
+            ctx.globalAlpha = 0.7 * nodeAlphaProgress;
             ctx.shadowColor = '#FF9900';
-            ctx.shadowBlur = 4;
+            ctx.shadowBlur = 3;
           } else {
             ctx.fillStyle = node.color;
-            ctx.globalAlpha = 0.6 * nodeAlphaProgress;
+            ctx.globalAlpha = 0.4 * nodeAlphaProgress;
             ctx.shadowBlur = 0;
           }
 

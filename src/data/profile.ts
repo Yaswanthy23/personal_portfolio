@@ -22,10 +22,8 @@ export const profileData: Profile = {
       "Beyond setting up pipelines and clusters, I genuinely enjoy the troubleshooting side of DevOps—investigating container startup failures, debugging IAM access policies, resolving Terraform state locks, and tuning Linux system performance. My goal is to continually sharpen my engineering craft and grow into a strong senior cloud & DevOps engineer.",
   },
   profileImage: {
-    src: '/images/profile-placeholder.jpg',
-    alt: 'Yaswanth - AWS DevOps Engineer',
-    badge: 'AWS DEVOPS',
-    tags: ['AWS', 'Terraform', 'Kubernetes'],
+    src: '/images/profile-placeholder.png',
+    alt: 'DevOps engineer working with cloud infrastructure',
   },
   resumeUrl: '/assets/Yaswanth_DevOps_Resume.pdf', // Easy to replace with Cloudinary URL
 };

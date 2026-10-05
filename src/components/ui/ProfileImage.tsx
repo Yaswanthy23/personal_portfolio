@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { profileData } from '@/data/profile';
@@ -8,65 +8,50 @@ import { profileData } from '@/data/profile';
 export interface ProfileImageProps {
   src?: string;
   alt?: string;
+  priority?: boolean;
   className?: string;
 }
 
 export const ProfileImage: React.FC<ProfileImageProps> = ({
-  src = profileData.profileImage?.src || '/images/profile-placeholder.jpg',
-  alt = profileData.profileImage?.alt || `${profileData.name} - ${profileData.role}`,
+  src = profileData.profileImage?.src || '/images/profile-placeholder.png',
+  alt = profileData.profileImage?.alt || 'DevOps engineer working with cloud infrastructure',
+  priority = true,
   className,
 }) => {
-  const [mounted, setMounted] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 50);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div
       className={cn(
-        'relative w-full max-w-[340px] sm:max-w-[380px] transition-all duration-700 ease-out select-none',
-        // Subtle entrance animation: Fade in, upward movement, subtle scale from 0.98 -> 1
-        mounted
-          ? 'opacity-100 translate-y-0 scale-100'
-          : 'opacity-0 translate-y-4 scale-[0.98]',
+        'group relative w-full max-w-[280px] sm:max-w-[330px] md:max-w-[360px] lg:max-w-[400px] select-none mx-auto lg:mx-0',
         className
       )}
     >
-      {/* Very subtle ambient depth lighting */}
-      <div
-        className="absolute -inset-2 bg-gradient-to-tr from-[#FF9900]/10 to-[#22D3EE]/5 rounded-3xl blur-2xl opacity-40 pointer-events-none"
-        aria-hidden="true"
-      />
-
-      {/* Main Portrait Frame with subtle engineering accents */}
-      <div className="relative rounded-[16px] bg-[#101827] border border-[#1E293B] p-2.5 sm:p-3 shadow-xl transition-colors duration-300 hover:border-[#2A3B52]">
+      {/* Subtle Technical Frame */}
+      <div className="relative rounded-[16px] bg-[#0A0F1D] border border-[#1E293B] p-2 sm:p-2.5 shadow-2xl transition-colors duration-300 hover:border-[#334155]">
         
-        {/* Subtle Orange Accent Corners */}
+        {/* Subtle AWS Orange Corner Accent Lines (#FF9900) */}
         <span
-          className="absolute -top-[1px] -right-[1px] w-3.5 h-3.5 border-t-2 border-r-2 border-[#FF9900]/70 rounded-tr-[16px] pointer-events-none"
+          className="absolute -top-[1px] -right-[1px] w-4 h-4 border-t-2 border-r-2 border-[#FF9900]/80 rounded-tr-[16px] pointer-events-none transition-opacity duration-300 group-hover:border-[#FF9900]"
           aria-hidden="true"
         />
         <span
-          className="absolute -bottom-[1px] -left-[1px] w-3.5 h-3.5 border-b-2 border-l-2 border-[#FF9900]/70 rounded-bl-[16px] pointer-events-none"
+          className="absolute -bottom-[1px] -left-[1px] w-4 h-4 border-b-2 border-l-2 border-[#FF9900]/80 rounded-bl-[16px] pointer-events-none transition-opacity duration-300 group-hover:border-[#FF9900]"
           aria-hidden="true"
         />
 
-        {/* Inner Image Container */}
+        {/* Inner Portrait Image Container */}
         <div className="relative aspect-[3/4] w-full rounded-[12px] overflow-hidden bg-[#070B14]">
           <Image
             src={src}
             alt={alt}
             fill
-            sizes="(max-width: 640px) 300px, (max-width: 1024px) 340px, 380px"
-            priority
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 400px"
+            priority={priority}
             onLoad={() => setImageLoaded(true)}
             className={cn(
-              'object-cover object-top transition-opacity duration-500',
+              'object-cover object-top transition-transform duration-300 sm:duration-400 ease-out motion-safe:group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none',
+              'transition-opacity duration-500',
               imageLoaded ? 'opacity-100' : 'opacity-0'
             )}
           />

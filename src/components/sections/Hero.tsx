@@ -36,15 +36,15 @@ export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] flex items-center pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-[#070B14] engineering-grid"
+      className="relative min-h-[90vh] flex items-center pt-32 pb-20 md:pt-36 md:pb-24 overflow-hidden bg-[#070B14] engineering-grid"
     >
-      {/* Layer 3 — Subtle Ambient Lighting */}
+      {/* Layer 3 — Very Low-Opacity Ambient Lighting */}
       <div
-        className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] ambient-glow-orange rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] ambient-glow-orange rounded-full blur-3xl opacity-30 pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/3 right-10 w-[450px] h-[300px] ambient-glow-cyan rounded-full blur-3xl pointer-events-none"
+        className="absolute top-1/3 right-10 w-[400px] h-[260px] ambient-glow-cyan rounded-full blur-3xl opacity-20 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -54,35 +54,24 @@ export const Hero: React.FC = () => {
       <Container size="lg" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Column: Personal Introduction & CTAs */}
-          <div className="lg:col-span-7 space-y-6 text-left order-2 lg:order-1">
+          {/* Left Column: Role Label, Personal Introduction, CTAs & Socials */}
+          <div className="lg:col-span-7 space-y-6 text-left order-1 lg:order-1">
             
-            {/* Small Eyebrow */}
-            <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#FF9900]" />
-              <span className="font-mono text-xs font-semibold tracking-wider text-[#FF9900] uppercase">
+            {/* Role Eyebrow with Small Orange Dot */}
+            <div className="flex items-center gap-2.5">
+              <span className="h-2 w-2 rounded-full bg-[#FF9900]" />
+              <span className="font-mono text-[12px] sm:text-[13px] font-semibold tracking-wider text-[#FF9900] uppercase">
                 {profileData.eyebrow}
               </span>
             </div>
 
-            {/* Main Greeting & Typing Introduction */}
-            <div className="space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#F8FAFC]">
-                Engineering Scalable, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF9900] via-[#F8FAFC] to-[#22D3EE]">
-                  Automated Cloud Systems.
-                </span>
-              </h1>
-
-              {/* Word-by-word Typing Introduction */}
-              <TypingIntroduction
-                text={profileData.heroIntroduction}
-                className="text-base sm:text-lg text-[#94A3B8] max-w-xl leading-relaxed font-normal"
-              />
+            {/* Single Primary Personal Introduction with Word-by-Word Typing */}
+            <div className="pt-1">
+              <TypingIntroduction className="max-w-[660px]" />
             </div>
 
-            {/* Two Primary CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-3">
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 pt-4 sm:pt-6">
               <a
                 href="#projects"
                 onClick={handleScrollToProjects}
@@ -104,7 +93,7 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Secondary Social Links */}
-            <div className="flex items-center gap-6 pt-4 text-xs font-mono text-[#64748B] border-t border-[#1E293B]/60 max-w-lg">
+            <div className="flex items-center gap-6 pt-5 text-xs font-mono text-[#64748B] border-t border-[#1E293B]/60 max-w-lg">
               <a
                 href={githubLink}
                 target="_blank"
@@ -138,8 +127,8 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Clean Profile Image Composition */}
-          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end order-1 lg:order-2">
+          {/* Right Column: Clean DevOps Portrait Image */}
+          <div className="lg:col-span-5 w-full flex justify-center lg:justify-end order-2 lg:order-2 lg:-translate-y-[35px] md:-translate-y-[20px] translate-y-0">
             <ProfileImage />
           </div>
         </div>
