@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { profileData } from '@/data/profile';
@@ -18,8 +18,6 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
   priority = true,
   className,
 }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
   return (
     <div
       className={cn(
@@ -48,12 +46,7 @@ export const ProfileImage: React.FC<ProfileImageProps> = ({
             fill
             sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 400px"
             priority={priority}
-            onLoad={() => setImageLoaded(true)}
-            className={cn(
-              'object-cover object-top transition-transform duration-300 sm:duration-400 ease-out motion-safe:group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none',
-              'transition-opacity duration-500',
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            )}
+            className="object-cover object-top transition-transform duration-300 sm:duration-400 ease-out motion-safe:group-hover:scale-[1.02] motion-reduce:transform-none"
           />
         </div>
       </div>
