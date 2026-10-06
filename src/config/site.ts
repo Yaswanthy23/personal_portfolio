@@ -25,8 +25,9 @@ export const siteConfig = {
     'DevOps Portfolio',
   ],
   links: {
-    github: 'https://github.com/placeholder-yaswanth',
-    linkedin: 'https://linkedin.com/in/placeholder-yaswanth',
-    email: 'mailto:contact@placeholder-yaswanth.dev',
+    github: 'https://github.com/Yaswanthy23',
+    linkedin: 'https://www.linkedin.com/in/yaswanth-gedela-84946b250/',
+    email: 'mailto:yaswanthgedela27@gmail.com',
   },
 };
+

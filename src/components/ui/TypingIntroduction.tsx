@@ -35,7 +35,7 @@ export const TypingIntroduction: React.FC<TypingIntroductionProps> = ({
 
     const timer = setTimeout(() => {
       setWordIndex((prev) => prev + 1);
-    }, 80);
+    }, 60);
 
     return () => clearTimeout(timer);
   }, [wordIndex]);
@@ -50,11 +50,11 @@ export const TypingIntroduction: React.FC<TypingIntroductionProps> = ({
       {/* Visual progressively typed introduction that freezes upon completion */}
       <p
         aria-hidden="true"
-        className="text-[18px] sm:text-[20px] md:text-[21px] lg:text-[23px] leading-[1.7] text-[#CBD5E1] font-normal select-text"
+        className="text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] leading-[1.68] text-[#CBD5E1] font-normal max-w-[650px] select-text"
       >
         <span>{visibleText}</span>
         <span
-          className="inline-block font-mono text-[#FF9900] font-bold ml-1.5 select-none animate-terminal-cursor align-baseline"
+          className="inline-block font-mono text-[#CCFF00] font-bold ml-1.5 select-none animate-terminal-cursor align-baseline"
           aria-hidden="true"
         >
           ▌
@@ -63,3 +63,5 @@ export const TypingIntroduction: React.FC<TypingIntroductionProps> = ({
     </div>
   );
 };
+
+

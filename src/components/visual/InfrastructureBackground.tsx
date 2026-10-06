@@ -109,7 +109,7 @@ export const InfrastructureBackground: React.FC = () => {
           y = height * (0.15 + Math.random() * 0.7);
         }
 
-        const isOrangeAccent = i === 3 || i === 11;
+        const isLimeAccent = i === 3 || i === 11;
         const isSlateLight = i % 3 === 0;
 
         nodes.push({
@@ -119,9 +119,9 @@ export const InfrastructureBackground: React.FC = () => {
           baseY: y,
           vx: 0,
           vy: 0,
-          radius: isOrangeAccent ? 3.5 : isSlateLight ? 2.5 : 2,
-          color: isOrangeAccent ? '#FF9900' : isSlateLight ? '#475569' : '#334155',
-          isAccent: isOrangeAccent,
+          radius: isLimeAccent ? 3.5 : isSlateLight ? 2.5 : 2,
+          color: isLimeAccent ? '#CCFF00' : isSlateLight ? '#475569' : '#19241C',
+          isAccent: isLimeAccent,
         });
       }
 
@@ -172,9 +172,9 @@ export const InfrastructureBackground: React.FC = () => {
         const fromIdx = reverse ? conn.to : conn.from;
         const toIdx = reverse ? conn.from : conn.to;
 
-        // Occasional color variant: mostly cyan, sometimes orange, rarely green
+        // Occasional color variant: mostly lime, sometimes cyan, rarely green
         const colorRand = Math.random();
-        const color = colorRand > 0.75 ? '#FF9900' : colorRand > 0.15 ? '#22D3EE' : '#22C55E';
+        const color = colorRand > 0.7 ? '#CCFF00' : colorRand > 0.3 ? '#38BDF8' : '#22C55E';
 
         packets.push({
           connectionIndex: randomConnIdx,
@@ -286,7 +286,7 @@ export const InfrastructureBackground: React.FC = () => {
           if (node.isAccent) {
             ctx.fillStyle = node.color;
             ctx.globalAlpha = 0.7 * nodeAlphaProgress;
-            ctx.shadowColor = '#FF9900';
+            ctx.shadowColor = '#CCFF00';
             ctx.shadowBlur = 3;
           } else {
             ctx.fillStyle = node.color;

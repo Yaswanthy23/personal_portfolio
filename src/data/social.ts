@@ -4,25 +4,26 @@ export const socialLinks: SocialLink[] = [
   {
     id: 'github',
     name: 'GitHub',
-    href: 'https://github.com/placeholder-yaswanth', // Placeholder: Update with real profile URL
+    href: 'https://github.com/Yaswanthy23',
     icon: 'Github',
     ariaLabel: 'Visit Yaswanth on GitHub',
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
   {
     id: 'linkedin',
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/placeholder-yaswanth', // Placeholder: Update with real profile URL
+    href: 'https://www.linkedin.com/in/yaswanth-gedela-84946b250/',
     icon: 'Linkedin',
     ariaLabel: 'Connect with Yaswanth on LinkedIn',
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
   {
     id: 'email',
     name: 'Email',
-    href: 'mailto:contact@placeholder-yaswanth.dev', // Placeholder: Update with real email address
+    href: 'mailto:yaswanthgedela27@gmail.com',
     icon: 'Mail',
     ariaLabel: 'Send an email to Yaswanth',
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
 ];
+
