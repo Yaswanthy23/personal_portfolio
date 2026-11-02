@@ -1,69 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #060907;
-  --color-bg-secondary: #0A0F0C;
-  --color-bg-card: #0E1410;
-  --color-bg-card-elevated: #131C16;
+  --color-bg-primary: #0B1117;
+  --color-bg-secondary: #080D0A;
+  --color-bg-card: #0D1410;
+  --color-bg-card-elevated: #131E17;
   
-  --color-border-subtle: #19241C;
-  --color-border-light: #243529;
+  --color-border-subtle: #17261D;
+  --color-border-light: #234230;
   
-  --color-text-primary: #F4F9F5;
-  --color-text-secondary: #94A899;
-  --color-text-muted: #667A6B;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #9CA3AF;
+  --color-text-muted: #64748B;
   
-  --color-lime-primary: #CCFF00;
-  --color-lime-hover: #B8F500;
-  --color-lime-muted: #A3E635;
-  --color-lime-glow: rgba(204, 255, 0, 0.18);
+  --color-green-primary: #00DC82;
+  --color-green-hover: #00C575;
+  --color-green-muted: #34D399;
+  --color-green-glow: rgba(0, 220, 130, 0.25);
   
-  --color-tech-cyan: #38BDF8;
-  --color-accent-green: #22C55E;
+  --color-accent-emerald: #00DC82;
+  --color-accent-mint: #34D399;
+
+  --font-sans: var(--font-poppins), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-poppins), 'Poppins', monospace;
+  --font-poppins: var(--font-poppins), 'Poppins', sans-serif;
 }
 
 :root {
-  --bg-primary: #060907;
-  --bg-secondary: #0A0F0C;
-  --bg-card: #0E1410;
-  --bg-card-elevated: #131C16;
-  --border-subtle: #19241C;
-  --border-light: #243529;
-  --text-primary: #F4F9F5;
-  --text-secondary: #94A899;
-  --text-muted: #667A6B;
-  --lime-primary: #CCFF00;
-  --lime-muted: #A3E635;
-  --tech-cyan: #38BDF8;
-  --accent-green: #22C55E;
+  --bg-primary: #0B1117;
+  --bg-secondary: #080D0A;
+  --bg-card: #0D1410;
+  --bg-card-elevated: #131E17;
+  --border-subtle: #17261D;
+  --border-light: #234230;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CA3AF;
+  --text-muted: #64748B;
+  --green-primary: #00DC82;
+  --green-muted: #34D399;
+  --accent-emerald: #00DC82;
+  --font-poppins: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  font-family: var(--font-poppins), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-  background-color: #060907;
-  color: #F4F9F5;
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #0B1117;
+  color: #FFFFFF;
+  font-family: var(--font-poppins), 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
+}
+
+*, *::before, *::after {
+  font-family: inherit;
 }
 
 /* Custom minimal dark scrollbar */
@@ -71,37 +66,41 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #060907;
+  background: #0B1117;
 }
 ::-webkit-scrollbar-thumb {
-  background: #19241C;
+  background: #17261D;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #CCFF00;
+  background: #00DC82;
 }
 
-/* Subtle engineering grid */
+/* Subtle dark emerald grid */
 .engineering-grid {
   background-image: 
-    linear-gradient(to right, rgba(204, 255, 0, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(204, 255, 0, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 220, 130, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 220, 130, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 /* Dark dot grid */
 .dot-grid {
-  background-image: radial-gradient(rgba(204, 255, 0, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 220, 130, 0.14) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-/* Lime Ambient glow utilities */
-.ambient-glow-lime {
-  background: radial-gradient(circle, rgba(204, 255, 0, 0.06) 0%, transparent 70%);
+/* Ambient glow utilities */
+.ambient-glow-green {
+  background: radial-gradient(circle, rgba(0, 220, 130, 0.12) 0%, transparent 70%);
 }
 
-.ambient-glow-green {
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+.ambient-glow-mint {
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.10) 0%, transparent 70%);
+}
+
+.ambient-glow-charcoal {
+  background: radial-gradient(circle, rgba(13, 20, 16, 0.9) 0%, transparent 70%);
 }
 
 /* Terminal cursor blink */
@@ -135,20 +134,38 @@ body {
   animation: wireframeSpin 40s linear infinite;
 }
 
-/* Glow pulse */
-@keyframes limePulse {
+/* Hanging ID Card Lanyard Sway Animation */
+@keyframes hangingCardSway {
   0%, 100% {
-    opacity: 0.8;
-    box-shadow: 0 0 10px rgba(204, 255, 0, 0.3);
+    transform: rotate(0deg);
   }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 20px rgba(204, 255, 0, 0.7);
+  25% {
+    transform: rotate(2deg);
+  }
+  75% {
+    transform: rotate(-2deg);
   }
 }
 
-.animate-lime-pulse {
-  animation: limePulse 3s ease-in-out infinite;
+.animate-hanging-card {
+  transform-origin: top center;
+  animation: hangingCardSway 5s ease-in-out infinite;
+}
+
+/* Glow pulse */
+@keyframes greenPulse {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(0, 220, 130, 0.35);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 22px rgba(0, 220, 130, 0.8);
+  }
+}
+
+.animate-green-pulse {
+  animation: greenPulse 3s ease-in-out infinite;
 }
 
 /* Hide Next.js Dev Indicator Badge */
@@ -162,4 +179,3 @@ div[data-nextjs-dev-indicator],
   opacity: 0 !important;
   pointer-events: none !important;
 }
-

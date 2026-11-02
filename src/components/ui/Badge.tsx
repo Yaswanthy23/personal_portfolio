@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'orange' | 'cyan' | 'green' | 'slate' | 'outline';
+  variant?: 'blue' | 'cyan' | 'green' | 'slate' | 'outline' | 'orange';
   size?: 'sm' | 'md';
   dot?: boolean;
 }
@@ -23,19 +23,21 @@ export const Badge: React.FC<BadgeProps> = ({
   };
 
   const variantStyles = {
-    orange: 'bg-[#FF9900]/10 text-[#FF9900] border border-[#FF9900]/30',
-    cyan: 'bg-[#22D3EE]/10 text-[#22D3EE] border border-[#22D3EE]/30',
-    green: 'bg-[#22C55E]/10 text-[#22C55E] border border-[#22C55E]/30',
-    slate: 'bg-[#172033] text-[#94A3B8] border border-[#263449]',
-    outline: 'bg-transparent text-[#94A3B8] border border-[#263449]',
+    blue: 'bg-[#00DC82]/15 text-[#34D399] border border-[#00DC82]/40',
+    orange: 'bg-[#00DC82]/15 text-[#34D399] border border-[#00DC82]/40',
+    cyan: 'bg-[#34D399]/15 text-[#34D399] border border-[#34D399]/40',
+    green: 'bg-[#00DC82]/15 text-[#00DC82] border border-[#00DC82]/40',
+    slate: 'bg-[#0D1410] text-[#9CA3AF] border border-[#17261D]',
+    outline: 'bg-transparent text-[#9CA3AF] border border-[#17261D]',
   };
 
   const dotColors = {
-    orange: 'bg-[#FF9900]',
-    cyan: 'bg-[#22D3EE]',
-    green: 'bg-[#22C55E]',
-    slate: 'bg-[#94A3B8]',
-    outline: 'bg-[#94A3B8]',
+    blue: 'bg-[#00DC82]',
+    orange: 'bg-[#00DC82]',
+    cyan: 'bg-[#34D399]',
+    green: 'bg-[#00DC82]',
+    slate: 'bg-[#9CA3AF]',
+    outline: 'bg-[#9CA3AF]',
   };
 
   return (

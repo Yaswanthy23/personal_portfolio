@@ -33,7 +33,7 @@ export const ScrollToTop: React.FC = () => {
       onClick={scrollToTop}
       aria-label="Scroll back to top"
       className={cn(
-        'fixed bottom-6 right-6 z-40 p-2.5 rounded-lg bg-[#172033] border border-[#263449] text-[#94A3B8] hover:text-[#FF9900] hover:border-[#FF9900] shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]',
+        'fixed bottom-6 right-6 z-40 p-2.5 rounded-full bg-[#0D1410] border border-[#17261D] text-[#9CA3AF] hover:text-[#00DC82] hover:border-[#00DC82] hover:shadow-[0_0_15px_rgba(0,220,130,0.4)] shadow-lg transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00DC82] cursor-pointer',
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       )}
     >

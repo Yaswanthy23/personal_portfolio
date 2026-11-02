@@ -1,22 +1,17 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/config/site';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
-  display: 'swap',
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: '--font-poppins',
   display: 'swap',
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0B1120',
+  themeColor: '#0B1117',
   width: 'device-width',
   initialScale: 1,
 };
@@ -84,15 +79,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth dark`}
+      className={`${poppins.variable} font-sans scroll-smooth dark`}
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#0B1120] text-[#F8FAFC] antialiased selection:bg-[#FF9900]/30 selection:text-[#F8FAFC]">
+      <body className="bg-[#0B1117] text-[#FFFFFF] font-sans antialiased selection:bg-[#00DC82]/30 selection:text-[#FFFFFF]">
         {children}
       </body>
     </html>

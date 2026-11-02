@@ -36,7 +36,6 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    // Subtle 3D tilt
     const rotX = ((y - centerY) / centerY) * -6;
     const rotY = ((x - centerX) / centerX) * 6;
 
@@ -53,16 +52,13 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
   return (
     <div className={cn('relative flex flex-col items-center select-none pt-0 pb-4', className)}>
       
-      {/* 1. LANYARD STRAP (Woven High-Tech Lanyard with Lime Accent Stitches) */}
+      {/* 1. LANYARD STRAP (Dark Emerald Lanyard with Neon Green Accent Stitches) */}
       <div className="relative z-10 flex flex-col items-center">
-        {/* Lanyard strap extending up */}
-        <div className="relative w-9 sm:w-10 h-12 sm:h-14 bg-gradient-to-r from-[#101712] via-[#1E2E23] to-[#101712] shadow-md flex items-center justify-between px-1 overflow-hidden border-x border-[#19241C]">
-          {/* Subtle woven texture lines */}
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(204,255,0,0.06)_0px,rgba(204,255,0,0.06)_2px,transparent_2px,transparent_4px)]" />
+        <div className="relative w-9 sm:w-10 h-12 sm:h-14 bg-gradient-to-r from-[#07130C] via-[#13281B] to-[#07130C] shadow-md flex items-center justify-between px-1 overflow-hidden border-x border-[#17261D]">
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,rgba(0,220,130,0.08)_0px,rgba(0,220,130,0.08)_2px,transparent_2px,transparent_4px)]" />
           
-          {/* Lime stitching edges */}
-          <div className="h-full w-px border-r border-dashed border-[#CCFF00]/50" />
-          <div className="h-full w-px border-r border-dashed border-[#CCFF00]/50" />
+          <div className="h-full w-px border-r border-dashed border-[#00DC82]/60" />
+          <div className="h-full w-px border-r border-dashed border-[#00DC82]/60" />
         </div>
 
         {/* 2. METAL STRAP LOOP CLAMP */}
@@ -74,10 +70,7 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
 
         {/* 3. BRUSHED METAL SWIVEL & SPRING CLASP */}
         <div className="relative z-10 flex flex-col items-center -mt-0.5">
-          {/* Swivel ring */}
           <div className="w-3.5 h-3.5 rounded-full border-2 border-gray-300 bg-gradient-to-b from-gray-300 to-gray-500 shadow-sm" />
-          
-          {/* Metal hook that loops through the card punch hole */}
           <div className="w-3 h-5.5 -mt-1 rounded-b-full border-2 border-t-0 border-gray-300 bg-gradient-to-r from-gray-300 via-gray-100 to-gray-400 shadow-sm" />
         </div>
       </div>
@@ -95,7 +88,7 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
           transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out',
         }}
         className={cn(
-          'relative -mt-2.5 w-[275px] sm:w-[305px] rounded-[20px] bg-[#0E1410] text-[#F4F9F5] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.9),0_0_20px_rgba(204,255,0,0.12)] border border-[#243529] overflow-hidden cursor-grab active:cursor-grabbing group',
+          'relative -mt-2.5 w-[275px] sm:w-[305px] rounded-[20px] bg-[#0D1410] text-[#FFFFFF] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.9),0_0_20px_rgba(0,220,130,0.2)] border border-[#17261D] overflow-hidden cursor-grab active:cursor-grabbing group',
           !isHovered && 'animate-hanging-card'
         )}
       >
@@ -104,8 +97,7 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
 
         {/* Slotted Oval Punch Hole for Lanyard Clip */}
         <div className="pt-2.5 pb-1 flex justify-center">
-          <div className="w-11 h-3 rounded-full bg-[#060907] border border-[#243529] shadow-inner flex items-center justify-center">
-            {/* Clasp hook bar visible inside hole */}
+          <div className="w-11 h-3 rounded-full bg-[#050806] border border-[#17261D] shadow-inner flex items-center justify-center">
             <div className="w-2 h-full bg-gradient-to-b from-gray-400 to-gray-200 rounded-sm shadow-sm" />
           </div>
         </div>
@@ -113,28 +105,27 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
         {/* Header: Company / Cloud Logo */}
         <div className="px-5 pt-1 pb-2.5 flex flex-col items-center text-center">
           <div className="flex items-center gap-2">
-            {/* Hexagon Checkmark Logo */}
-            <div className="relative w-7 h-7 flex items-center justify-center text-[#CCFF00]">
+            <div className="relative w-7 h-7 flex items-center justify-center text-[#00DC82]">
               <svg viewBox="0 0 48 48" className="w-full h-full" fill="currentColor">
                 <path d="M24 4L42 14.3923V35.1769L24 45.5692L6 35.1769V14.3923L24 4Z" fill="none" stroke="currentColor" strokeWidth="4" strokeLinejoin="round" />
                 <path d="M16 24L22 30L32 18" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <div className="text-left">
-              <div className="font-extrabold text-sm leading-none text-[#F4F9F5] tracking-tight">
+              <div className="font-extrabold text-sm leading-none text-[#FFFFFF] tracking-tight">
                 AWS CLOUD
               </div>
-              <div className="font-mono text-[9px] font-bold text-[#CCFF00] tracking-widest uppercase">
+              <div className="font-mono text-[9px] font-bold text-[#00DC82] tracking-widest uppercase">
                 INFRASTRUCTURE
               </div>
             </div>
           </div>
         </div>
 
-        {/* Circular Profile Photo with Lime Ring */}
+        {/* Circular Profile Photo with Emerald Ring */}
         <div className="flex justify-center my-1.5">
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-[3px] border-[#CCFF00] shadow-[0_0_15px_rgba(204,255,0,0.25)] bg-[#060907]">
-            <div className="relative w-full h-full rounded-full overflow-hidden bg-[#101712]">
+          <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 border-[3px] border-[#00DC82] shadow-[0_0_15px_rgba(0,220,130,0.35)] bg-[#050806]">
+            <div className="relative w-full h-full rounded-full overflow-hidden bg-[#080D0A]">
               <Image
                 src={avatarSrc}
                 alt={name}
@@ -149,65 +140,58 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
 
         {/* Name & Designation */}
         <div className="text-center px-4 pt-1.5 pb-2.5">
-          <h3 className="text-lg sm:text-[20px] font-black tracking-tight text-[#F4F9F5] uppercase leading-tight">
+          <h3 className="text-lg sm:text-[20px] font-black tracking-tight text-[#FFFFFF] uppercase leading-tight">
             {name}
           </h3>
-          <div className="text-[11px] sm:text-xs font-bold tracking-wider text-[#CCFF00] uppercase mt-0.5 font-mono">
+          <div className="text-[11px] sm:text-xs font-bold tracking-wider text-[#34D399] uppercase mt-0.5 font-mono">
             {designation}
           </div>
         </div>
 
         {/* Metadata Details Grid */}
-        <div className="px-5 py-2 border-t border-[#19241C] bg-[#060907]/50 text-xs font-mono">
+        <div className="px-5 py-2 border-t border-[#17261D] bg-[#080D0A]/70 text-xs font-mono">
           <div className="grid grid-cols-2 gap-y-1 text-[10px] sm:text-[11px]">
-            <div className="text-[#667A6B] font-semibold uppercase">ID NUMBER</div>
-            <div className="text-right font-bold text-[#F4F9F5] font-mono tracking-wider">{idNumber}</div>
+            <div className="text-[#64748B] font-semibold uppercase">ID NUMBER</div>
+            <div className="text-right font-bold text-[#FFFFFF] font-mono tracking-wider">{idNumber}</div>
 
-            <div className="text-[#667A6B] font-semibold uppercase">VALID THROUGH</div>
-            <div className="text-right font-bold text-[#F4F9F5] font-mono">{validThrough}</div>
+            <div className="text-[#64748B] font-semibold uppercase">VALID THROUGH</div>
+            <div className="text-right font-bold text-[#FFFFFF] font-mono">{validThrough}</div>
           </div>
         </div>
 
-        {/* Bottom Accent Block (Lime Neon Strip with QR Code & Hologram) */}
-        <div className="bg-[#CCFF00] px-4 py-2.5 flex items-center justify-between text-[#060907] relative">
-          {/* Left: Security Hologram / Tech Chip */}
+        {/* Bottom Accent Block (Emerald Green Strip with QR Code & Hologram) */}
+        <div className="bg-[#00DC82] px-4 py-2.5 flex items-center justify-between text-[#050806] relative">
           <div className="flex flex-col space-y-0.5">
-            <div className="flex items-center gap-1 text-[9px] font-mono font-bold tracking-wider uppercase text-[#060907] bg-black/10 px-1.5 py-0.5 rounded">
-              <ShieldCheck className="h-3 w-3 text-[#060907]" />
+            <div className="flex items-center gap-1 text-[9px] font-mono font-bold tracking-wider uppercase text-[#050806] bg-black/15 px-1.5 py-0.5 rounded">
+              <ShieldCheck className="h-3 w-3 text-[#050806]" />
               <span>AUTHENTICATED</span>
             </div>
-            <div className="flex items-center gap-1 text-[8.5px] font-mono text-[#060907]/80 font-bold">
+            <div className="flex items-center gap-1 text-[8.5px] font-mono text-[#050806]/90 font-bold">
               <Cpu className="h-3 w-3" />
               <span>PROD // MULTI-AZ</span>
             </div>
           </div>
 
-          {/* Right: Crisp Scan QR Code in White Box */}
-          <div className="bg-[#060907] p-1 rounded-md shadow-sm shrink-0">
-            {/* SVG Crisp Vector QR Code */}
+          <div className="bg-[#050806] p-1 rounded-md shadow-sm shrink-0">
             <svg
               viewBox="0 0 29 29"
-              className="w-10 h-10 sm:w-11 sm:h-11 text-[#CCFF00]"
+              className="w-10 h-10 sm:w-11 sm:h-11 text-[#00DC82]"
               fill="currentColor"
               shapeRendering="crispEdges"
               aria-label="DevOps Verification QR"
             >
-              {/* Top-Left Position Detection Pattern */}
               <rect x="0" y="0" width="7" height="7" />
-              <rect x="1" y="1" width="5" height="5" fill="#060907" />
+              <rect x="1" y="1" width="5" height="5" fill="#050806" />
               <rect x="2" y="2" width="3" height="3" />
 
-              {/* Top-Right Position Detection Pattern */}
               <rect x="22" y="0" width="7" height="7" />
-              <rect x="23" y="1" width="5" height="5" fill="#060907" />
+              <rect x="23" y="1" width="5" height="5" fill="#050806" />
               <rect x="24" y="2" width="3" height="3" />
 
-              {/* Bottom-Left Position Detection Pattern */}
               <rect x="0" y="22" width="7" height="7" />
-              <rect x="1" y="23" width="5" height="5" fill="#060907" />
+              <rect x="1" y="23" width="5" height="5" fill="#050806" />
               <rect x="2" y="24" width="3" height="3" />
 
-              {/* Data payload cells & timing patterns */}
               <rect x="8" y="2" width="2" height="1" />
               <rect x="12" y="2" width="1" height="2" />
               <rect x="15" y="1" width="2" height="1" />
@@ -227,12 +211,11 @@ export const HangingIdCard: React.FC<HangingIdCardProps> = ({
               <rect x="22" y="8" width="2" height="2" />
               <rect x="26" y="9" width="1" height="2" />
 
-              {/* Center matrix */}
               <rect x="1" y="12" width="2" height="1" />
               <rect x="4" y="13" width="1" height="2" />
               <rect x="7" y="12" width="3" height="1" />
               <rect x="12" y="12" width="4" height="4" />
-              <rect x="13" y="13" width="2" height="2" fill="#060907" />
+              <rect x="13" y="13" width="2" height="2" fill="#050806" />
               <rect x="18" y="12" width="2" height="1" />
               <rect x="22" y="13" width="1" height="2" />
               <rect x="25" y="12" width="3" height="1" />

@@ -20,23 +20,8 @@ export interface RotatingSkillsProps {
 export const RotatingSkills: React.FC<RotatingSkillsProps> = ({ className }) => {
   const [index, setIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleMotionChange = (e: MediaQueryListEvent) => {
-      setPrefersReducedMotion(e.matches);
-    };
-
-    mediaQuery.addEventListener('change', handleMotionChange);
-    return () => mediaQuery.removeEventListener('change', handleMotionChange);
-  }, []);
-
-  useEffect(() => {
-    if (prefersReducedMotion) return;
-
     const interval = setInterval(() => {
       setIsTransitioning(true);
 
@@ -47,7 +32,7 @@ export const RotatingSkills: React.FC<RotatingSkillsProps> = ({ className }) => 
     }, 2800);
 
     return () => clearInterval(interval);
-  }, [prefersReducedMotion]);
+  }, []);
 
   const currentPair = skillSets[index];
 
@@ -59,20 +44,20 @@ export const RotatingSkills: React.FC<RotatingSkillsProps> = ({ className }) => 
       )}
       aria-label={`Skilled in: ${currentPair[0]} and ${currentPair[1]}`}
     >
-      <span className="text-[#F4F9F5] font-bold shrink-0">
+      <span className="text-[#FFFFFF] font-bold shrink-0">
         Skilled in :
       </span>
 
       <span
         className={cn(
-          'inline-flex items-center font-semibold text-[#CCFF00] transition-all duration-300 ease-out will-change-transform',
+          'inline-flex items-center font-semibold text-[#00DC82] transition-all duration-300 ease-out will-change-transform',
           isTransitioning
             ? 'opacity-0 -translate-y-1.5'
             : 'opacity-100 translate-y-0'
         )}
       >
         <span>{currentPair[0]}</span>
-        <span className="text-[#A3E635]/60 mx-1.5 select-none" aria-hidden="true">
+        <span className="text-[#34D399]/60 mx-1.5 select-none" aria-hidden="true">
           ·
         </span>
         <span>{currentPair[1]}</span>
@@ -80,5 +65,3 @@ export const RotatingSkills: React.FC<RotatingSkillsProps> = ({ className }) => 
     </div>
   );
 };
-
-

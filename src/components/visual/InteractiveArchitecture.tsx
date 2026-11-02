@@ -12,38 +12,38 @@ export const InteractiveArchitecture: React.FC = () => {
   const getNodeIcon = (id: string) => {
     switch (id) {
       case 'aws-cloud':
-        return <Cloud className="h-4 w-4 text-[#FF9900]" />;
+        return <Cloud className="h-4 w-4 text-[#00DC82]" />;
       case 'vpc':
       case 'public-subnet':
       case 'private-subnet':
-        return <Network className="h-4 w-4 text-[#22D3EE]" />;
+        return <Network className="h-4 w-4 text-[#34D399]" />;
       case 'iam':
-        return <Shield className="h-4 w-4 text-[#22C55E]" />;
+        return <Shield className="h-4 w-4 text-[#34D399]" />;
       case 'alb':
       case 'eks-cluster':
-        return <Server className="h-4 w-4 text-[#FF9900]" />;
+        return <Server className="h-4 w-4 text-[#00DC82]" />;
       case 'microservices':
-        return <Cpu className="h-4 w-4 text-[#22D3EE]" />;
+        return <Cpu className="h-4 w-4 text-[#34D399]" />;
       case 'storage-db':
-        return <Database className="h-4 w-4 text-[#FF9900]" />;
+        return <Database className="h-4 w-4 text-[#00DC82]" />;
       default:
-        return <Server className="h-4 w-4 text-[#FF9900]" />;
+        return <Server className="h-4 w-4 text-[#00DC82]" />;
     }
   };
 
   return (
-    <div className="rounded-2xl bg-[#101827] border border-[#1E293B] p-6 sm:p-8 space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#1E293B]">
+    <div className="rounded-2xl bg-[#0D1410] border border-[#17261D] p-6 sm:p-8 space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#17261D]">
         <div>
-          <h3 className="text-lg font-bold text-[#F8FAFC]">
+          <h3 className="text-lg font-bold text-[#FFFFFF]">
             Interactive Cloud Architecture Visualizer
           </h3>
-          <p className="text-xs sm:text-sm text-[#94A3B8]">
+          <p className="text-xs sm:text-sm text-[#9CA3AF]">
             Click on any tier or component to inspect its architecture decisions and AWS services.
           </p>
         </div>
-        <div className="flex items-center gap-1.5 text-xs font-mono text-[#64748B]">
-          <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+        <div className="flex items-center gap-1.5 text-xs font-mono text-[#9CA3AF]">
+          <span className="w-2 h-2 rounded-full bg-[#00DC82]" />
           <span>Multi-AZ Production Blueprint</span>
         </div>
       </div>
@@ -54,7 +54,7 @@ export const InteractiveArchitecture: React.FC = () => {
         <div className="lg:col-span-7 space-y-3">
           
           {/* Layer 1: AWS Provider & Governance */}
-          <div className="p-3 rounded-xl bg-[#070B14] border border-[#1E293B] space-y-2">
+          <div className="p-3 rounded-xl bg-[#080D0A] border border-[#17261D] space-y-2">
             <div className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
               Layer 1: Cloud & Security Governance
             </div>
@@ -66,8 +66,8 @@ export const InteractiveArchitecture: React.FC = () => {
                   className={cn(
                     'flex items-center justify-between p-3 rounded-lg text-left text-xs font-mono transition-all border',
                     selectedNodeId === node.id
-                      ? 'bg-[#111C2D] border-[#FF9900] text-[#F8FAFC] shadow-sm'
-                      : 'bg-[#101827] border-[#1E293B] text-[#94A3B8] hover:border-[#2A3B52] hover:text-[#F8FAFC]'
+                      ? 'bg-[#131E17] border-[#00DC82] text-[#FFFFFF] shadow-sm'
+                      : 'bg-[#0D1410] border-[#17261D] text-[#9CA3AF] hover:border-[#234230] hover:text-[#FFFFFF]'
                   )}
                 >
                   <div className="flex items-center gap-2">
@@ -81,7 +81,7 @@ export const InteractiveArchitecture: React.FC = () => {
           </div>
 
           {/* Layer 2: Network Subnet Tiers & Routing */}
-          <div className="p-3 rounded-xl bg-[#070B14] border border-[#1E293B] space-y-2">
+          <div className="p-3 rounded-xl bg-[#080D0A] border border-[#17261D] space-y-2">
             <div className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
               Layer 2: Ingress & Network Routing
             </div>
@@ -93,8 +93,8 @@ export const InteractiveArchitecture: React.FC = () => {
                   className={cn(
                     'flex items-center justify-between p-3 rounded-lg text-left text-xs font-mono transition-all border',
                     selectedNodeId === node.id
-                      ? 'bg-[#111C2D] border-[#FF9900] text-[#F8FAFC] shadow-sm'
-                      : 'bg-[#101827] border-[#1E293B] text-[#94A3B8] hover:border-[#2A3B52] hover:text-[#F8FAFC]'
+                      ? 'bg-[#131E17] border-[#00DC82] text-[#FFFFFF] shadow-sm'
+                      : 'bg-[#0D1410] border-[#17261D] text-[#9CA3AF] hover:border-[#234230] hover:text-[#FFFFFF]'
                   )}
                 >
                   <div className="flex items-center gap-2">
@@ -108,7 +108,7 @@ export const InteractiveArchitecture: React.FC = () => {
           </div>
 
           {/* Layer 3: Kubernetes Orchestration & Workloads */}
-          <div className="p-3 rounded-xl bg-[#070B14] border border-[#1E293B] space-y-2">
+          <div className="p-3 rounded-xl bg-[#080D0A] border border-[#17261D] space-y-2">
             <div className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
               Layer 3: Orchestration & Application Tier
             </div>
@@ -120,8 +120,8 @@ export const InteractiveArchitecture: React.FC = () => {
                   className={cn(
                     'flex items-center justify-between p-3 rounded-lg text-left text-xs font-mono transition-all border',
                     selectedNodeId === node.id
-                      ? 'bg-[#111C2D] border-[#FF9900] text-[#F8FAFC] shadow-sm'
-                      : 'bg-[#101827] border-[#1E293B] text-[#94A3B8] hover:border-[#2A3B52] hover:text-[#F8FAFC]'
+                      ? 'bg-[#131E17] border-[#00DC82] text-[#FFFFFF] shadow-sm'
+                      : 'bg-[#0D1410] border-[#17261D] text-[#9CA3AF] hover:border-[#234230] hover:text-[#FFFFFF]'
                   )}
                 >
                   <div className="flex items-center gap-2 truncate">
@@ -135,7 +135,7 @@ export const InteractiveArchitecture: React.FC = () => {
           </div>
 
           {/* Layer 4: Storage & Database Tier */}
-          <div className="p-3 rounded-xl bg-[#070B14] border border-[#1E293B] space-y-2">
+          <div className="p-3 rounded-xl bg-[#080D0A] border border-[#17261D] space-y-2">
             <div className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
               Layer 4: Data & Persistent Storage Tier
             </div>
@@ -147,8 +147,8 @@ export const InteractiveArchitecture: React.FC = () => {
                   className={cn(
                     'flex items-center justify-between p-3 rounded-lg text-left text-xs font-mono transition-all border',
                     selectedNodeId === node.id
-                      ? 'bg-[#111C2D] border-[#FF9900] text-[#F8FAFC] shadow-sm'
-                      : 'bg-[#101827] border-[#1E293B] text-[#94A3B8] hover:border-[#2A3B52] hover:text-[#F8FAFC]'
+                      ? 'bg-[#131E17] border-[#00DC82] text-[#FFFFFF] shadow-sm'
+                      : 'bg-[#0D1410] border-[#17261D] text-[#9CA3AF] hover:border-[#234230] hover:text-[#FFFFFF]'
                   )}
                 >
                   <div className="flex items-center gap-2">
@@ -163,29 +163,29 @@ export const InteractiveArchitecture: React.FC = () => {
         </div>
 
         {/* Right 5 Cols: Selected Component Inspector */}
-        <div className="lg:col-span-5 p-6 rounded-xl bg-[#070B14] border border-[#1E293B] space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#1E293B]">
-            <span className="text-xs font-mono text-[#FF9900]">
+        <div className="lg:col-span-5 p-6 rounded-xl bg-[#080D0A] border border-[#17261D] space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#17261D]">
+            <span className="text-xs font-mono text-[#00DC82] font-bold">
               {selectedNode.category}
             </span>
             <span className="text-xs font-mono text-[#64748B]">NODE INSPECTOR</span>
           </div>
 
           <div className="space-y-2">
-            <h4 className="text-lg font-bold text-[#F8FAFC]">
+            <h4 className="text-lg font-bold text-[#FFFFFF]">
               {selectedNode.label}
             </h4>
-            <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">
+            <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
               {selectedNode.description}
             </p>
           </div>
 
-          <div className="p-3.5 rounded-lg bg-[#101827] border border-[#1E293B] space-y-1.5">
+          <div className="p-3.5 rounded-lg bg-[#0D1410] border border-[#17261D] space-y-1.5">
             <div className="text-[11px] font-mono uppercase tracking-wider text-[#64748B] flex items-center gap-1">
-              <Info className="h-3 w-3 text-[#22D3EE]" />
+              <Info className="h-3 w-3 text-[#00DC82]" />
               Engineering Details
             </div>
-            <p className="text-xs text-[#94A3B8] leading-relaxed">
+            <p className="text-xs text-[#9CA3AF] leading-relaxed">
               {selectedNode.details}
             </p>
           </div>
@@ -198,7 +198,7 @@ export const InteractiveArchitecture: React.FC = () => {
               {selectedNode.technologies.map((t) => (
                 <span
                   key={t}
-                  className="text-xs font-mono px-2.5 py-1 rounded bg-[#101827] border border-[#1E293B] text-[#22D3EE]"
+                  className="text-xs font-mono px-2.5 py-1 rounded-full bg-[#0D1410] border border-[#17261D] text-[#00DC82]"
                 >
                   {t}
                 </span>

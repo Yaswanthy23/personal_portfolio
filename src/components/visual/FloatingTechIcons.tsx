@@ -308,7 +308,7 @@ export const FloatingTechIcons: React.FC<FloatingTechIconsProps> = ({ className 
       const dt = Math.min((currentTime - lastTime) / 16.666, 2.5); // normalized frame delta
       lastTime = currentTime;
 
-      if (!prefersReducedMotion && width > 0 && height > 0) {
+      if (width > 0 && height > 0) {
         particles.forEach((p, idx) => {
           // Update positions
           p.x += p.vx * dt;

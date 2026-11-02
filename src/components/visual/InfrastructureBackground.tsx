@@ -109,8 +109,8 @@ export const InfrastructureBackground: React.FC = () => {
           y = height * (0.15 + Math.random() * 0.7);
         }
 
-        const isLimeAccent = i === 3 || i === 11;
-        const isSlateLight = i % 3 === 0;
+        const isGreenAccent = i === 3 || i === 11;
+        const isMintLight = i % 3 === 0;
 
         nodes.push({
           x,
@@ -119,9 +119,9 @@ export const InfrastructureBackground: React.FC = () => {
           baseY: y,
           vx: 0,
           vy: 0,
-          radius: isLimeAccent ? 3.5 : isSlateLight ? 2.5 : 2,
-          color: isLimeAccent ? '#CCFF00' : isSlateLight ? '#475569' : '#19241C',
-          isAccent: isLimeAccent,
+          radius: isGreenAccent ? 3.5 : isMintLight ? 2.5 : 2,
+          color: isGreenAccent ? '#00DC82' : isMintLight ? '#34D399' : '#17261D',
+          isAccent: isGreenAccent,
         });
       }
 
@@ -160,7 +160,7 @@ export const InfrastructureBackground: React.FC = () => {
     const startTime = performance.now();
 
     const spawnPacket = (currentTime: number) => {
-      if (connections.length === 0 || prefersReducedMotion) return;
+      if (connections.length === 0) return;
       if (currentTime - lastPacketTime > packetInterval) {
         lastPacketTime = currentTime + (Math.random() * 1500 - 750); // small variance
 
@@ -172,9 +172,9 @@ export const InfrastructureBackground: React.FC = () => {
         const fromIdx = reverse ? conn.to : conn.from;
         const toIdx = reverse ? conn.from : conn.to;
 
-        // Occasional color variant: mostly lime, sometimes cyan, rarely green
+        // Color variants in emerald & mint palette
         const colorRand = Math.random();
-        const color = colorRand > 0.7 ? '#CCFF00' : colorRand > 0.3 ? '#38BDF8' : '#22C55E';
+        const color = colorRand > 0.6 ? '#00DC82' : colorRand > 0.3 ? '#34D399' : '#10B981';
 
         packets.push({
           connectionIndex: randomConnIdx,
@@ -194,15 +194,12 @@ export const InfrastructureBackground: React.FC = () => {
       const elapsed = currentTime - startTime;
 
       // Staged entrance opacity calculations
-      // Stage 1 (0-400ms): Grid (handled by CSS)
-      // Stage 2 (400-1200ms): Nodes fade in
-      const nodeAlphaProgress = prefersReducedMotion ? 1 : Math.min(1, Math.max(0, (elapsed - 200) / 900));
-      // Stage 3 (800-1800ms): Connections fade in
-      const lineAlphaProgress = prefersReducedMotion ? 1 : Math.min(1, Math.max(0, (elapsed - 600) / 1000));
+      const nodeAlphaProgress = Math.min(1, Math.max(0, (elapsed - 200) / 900));
+      const lineAlphaProgress = Math.min(1, Math.max(0, (elapsed - 600) / 1000));
 
       // Update node positions based on subtle mouse influence
       nodes.forEach((node) => {
-        if (!prefersReducedMotion && mouse.active) {
+        if (mouse.active) {
           const dx = mouse.x - node.x;
           const dy = mouse.y - node.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
@@ -233,18 +230,18 @@ export const InfrastructureBackground: React.FC = () => {
           const nodeB = nodes[conn.to];
           if (!nodeA || !nodeB) return;
 
-          const baseOpacity = 0.10 * lineAlphaProgress;
+          const baseOpacity = 0.12 * lineAlphaProgress;
           ctx.beginPath();
           ctx.moveTo(nodeA.x, nodeA.y);
           ctx.lineTo(nodeB.x, nodeB.y);
-          ctx.strokeStyle = `rgba(51, 65, 85, ${baseOpacity})`;
+          ctx.strokeStyle = `rgba(0, 220, 130, ${baseOpacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         });
       }
 
       // Draw packets traveling on connections (once settled)
-      if (elapsed > 1800 && !prefersReducedMotion) {
+      if (elapsed > 1800) {
         spawnPacket(currentTime);
 
         packets = packets.filter((packet) => {
@@ -259,14 +256,14 @@ export const InfrastructureBackground: React.FC = () => {
           const curY = fromNode.y + (toNode.y - fromNode.y) * packet.progress;
 
           // Packet glow and core
-          const packetAlpha = Math.sin(packet.progress * Math.PI) * 0.55;
+          const packetAlpha = Math.sin(packet.progress * Math.PI) * 0.65;
 
           ctx.beginPath();
           ctx.arc(curX, curY, packet.size, 0, Math.PI * 2);
           ctx.fillStyle = packet.color;
           ctx.globalAlpha = packetAlpha;
           ctx.shadowColor = packet.color;
-          ctx.shadowBlur = 4;
+          ctx.shadowBlur = 5;
           ctx.fill();
 
           // Reset shadow & globalAlpha
@@ -285,12 +282,12 @@ export const InfrastructureBackground: React.FC = () => {
 
           if (node.isAccent) {
             ctx.fillStyle = node.color;
-            ctx.globalAlpha = 0.7 * nodeAlphaProgress;
-            ctx.shadowColor = '#CCFF00';
-            ctx.shadowBlur = 3;
+            ctx.globalAlpha = 0.8 * nodeAlphaProgress;
+            ctx.shadowColor = '#00DC82';
+            ctx.shadowBlur = 4;
           } else {
             ctx.fillStyle = node.color;
-            ctx.globalAlpha = 0.4 * nodeAlphaProgress;
+            ctx.globalAlpha = 0.5 * nodeAlphaProgress;
             ctx.shadowBlur = 0;
           }
 

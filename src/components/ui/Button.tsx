@@ -23,23 +23,23 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070B14] disabled:opacity-50 disabled:pointer-events-none rounded-lg cursor-pointer select-none group';
+    'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00DC82] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1117] disabled:opacity-50 disabled:pointer-events-none rounded-full cursor-pointer select-none group';
 
   const sizeStyles = {
-    sm: 'text-xs px-3.5 py-2 gap-1.5',
-    md: 'text-sm px-5 py-2.5 gap-2',
-    lg: 'text-base px-6 py-3.5 gap-2.5',
+    sm: 'text-xs px-4 py-2 gap-1.5',
+    md: 'text-sm px-6 py-2.5 gap-2',
+    lg: 'text-base px-7 py-3.5 gap-2.5',
   };
 
   const variantStyles = {
     primary:
-      'bg-[#FF9900] text-[#070B14] font-semibold hover:bg-[#E08700] hover:-translate-y-0.5 active:translate-y-0 shadow-sm',
+      'bg-[#00DC82] text-[#050806] font-semibold hover:bg-[#00C575] hover:shadow-[0_0_24px_rgba(0,220,130,0.45)] hover:-translate-y-0.5 active:translate-y-0 shadow-md',
     secondary:
-      'bg-[#101827] text-[#F8FAFC] border border-[#1E293B] hover:border-[#2A3B52] hover:bg-[#111C2D] hover:-translate-y-0.5 active:translate-y-0',
+      'bg-[#0D1410] text-[#FFFFFF] border border-[#17261D] hover:border-[#00DC82] hover:text-[#00DC82] hover:bg-[#131E17] hover:-translate-y-0.5 active:translate-y-0',
     outline:
-      'bg-transparent text-[#F8FAFC] border border-[#1E293B] hover:border-[#FF9900] hover:text-[#FF9900] hover:-translate-y-0.5 active:translate-y-0',
+      'bg-transparent text-[#FFFFFF] border border-[#17261D] hover:border-[#00DC82] hover:text-[#00DC82] hover:bg-[#00DC82]/10 hover:-translate-y-0.5 active:translate-y-0',
     ghost:
-      'bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:bg-[#101827] active:scale-[0.99]',
+      'bg-transparent text-[#9CA3AF] hover:text-[#FFFFFF] hover:bg-[#0D1410] active:scale-[0.99]',
   };
 
   const combinedClasses = cn(baseStyles, sizeStyles[size], variantStyles[variant], className);

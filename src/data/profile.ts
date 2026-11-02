@@ -15,11 +15,11 @@ export const profileData: Profile = {
     "Hi, I'm Yaswanth, an AWS DevOps Engineer. I work with AWS, Terraform, Docker, Kubernetes, and CI/CD to build cloud infrastructure and automate application deployments. I enjoy solving real infrastructure problems and turning manual processes into simple, automated solutions.",
   aboutStory: {
     intro:
-      "I'm an AWS DevOps Engineer who enjoys the intersection of cloud infrastructure, automation, and systems reliability. My day-to-day work centers around turning manual, error-prone deployment steps into predictable, code-driven workflows.",
+      "I'm a DevOps Engineer working with AWS, infrastructure automation, and application deployments.",
     focus:
-      "I primarily work with AWS services (EC2, VPC, EKS, ECR, IAM, S3, RDS), provisioning modular infrastructure with Terraform, containerizing applications with Docker, and orchestrating deployments across Kubernetes clusters. I also design CI/CD pipelines using Jenkins and GitHub Actions so software can be tested, scanned, and delivered reliably.",
+      "I enjoy working on real-world projects, setting up infrastructure, automating deployments, and troubleshooting issues when things don't go as expected. I've worked with tools like Terraform, Docker, Kubernetes, Jenkins, and Prometheus, and I'm always looking for opportunities to learn and improve through hands-on work.",
     journey:
-      "Beyond setting up pipelines and clusters, I genuinely enjoy the troubleshooting side of DevOps—investigating container startup failures, debugging IAM access policies, resolving Terraform state locks, and tuning Linux system performance. My goal is to continually sharpen my engineering craft and grow into a strong senior cloud & DevOps engineer.",
+      "For me, DevOps is more than just working with tools. It's about understanding how things work, solving problems, and finding better ways to deploy and manage applications. I like exploring new technologies, learning from challenges, and pushing myself to handle more complex infrastructure and production environments.",
   },
   profileImage: {
     src: '/images/profile-placeholder.png',

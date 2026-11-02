@@ -6,18 +6,18 @@ import { technologiesData } from '@/data/skills';
 
 export const Technologies: React.FC = () => {
   return (
-    <section id="technologies" className="py-20 sm:py-24 bg-[#060907] border-t border-[#19241C] relative">
+    <section id="technologies" className="py-20 sm:py-24 bg-[#0B1117] border-t border-[#17261D] relative">
       <Container size="lg">
         
         {/* Section Header */}
         <div className="space-y-3 mb-12 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E1410] border border-[#19241C] text-[#CCFF00] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>TECHNOLOGIES</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1410] border border-[#17261D] text-[#00DC82] text-xs font-mono font-bold uppercase tracking-wider">
+            <span>04 / TECHNOLOGIES</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F4F9F5] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FFFFFF] tracking-tight">
             DevOps &amp; cloud engineering tech stack
           </h2>
-          <p className="text-sm text-[#94A899] max-w-2xl">
+          <p className="text-sm text-[#9CA3AF] max-w-2xl leading-relaxed">
             Tools, cloud services, and protocols I use daily to orchestrate production environments.
           </p>
         </div>
@@ -27,24 +27,24 @@ export const Technologies: React.FC = () => {
           {technologiesData.map((group) => (
             <div
               key={group.id}
-              className="p-5 rounded-2xl bg-[#0E1410] border border-[#19241C] hover:border-[#CCFF00]/40 transition-all duration-200 flex flex-col justify-between space-y-4 group"
+              className="p-5 rounded-2xl bg-[#0D1410] border border-[#17261D] hover:border-[#00DC82]/50 transition-all duration-200 flex flex-col justify-between space-y-4 group shadow-md"
             >
               <div className="space-y-1.5">
-                <h3 className="text-sm font-bold font-mono text-[#CCFF00] uppercase tracking-wider">
+                <h3 className="text-sm font-bold font-mono text-[#00DC82] uppercase tracking-wider">
                   {group.category}
                 </h3>
-                <p className="text-[11px] text-[#667A6B] leading-relaxed">
+                <p className="text-[11px] text-[#64748B] leading-relaxed">
                   {group.description}
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#19241C]">
+              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#17261D]">
                 {group.skills.map((skill) => {
                   const skillName = typeof skill === 'string' ? skill : skill.name;
                   return (
                     <span
                       key={skillName}
-                      className="px-2.5 py-1 text-xs font-mono text-[#F4F9F5] bg-[#090D0A] border border-[#19241C] hover:border-[#CCFF00]/50 hover:text-[#CCFF00] rounded-md transition-colors"
+                      className="px-2.5 py-1 text-xs font-mono text-[#FFFFFF] bg-[#080D0A] border border-[#17261D] hover:border-[#00DC82] hover:text-[#00DC82] rounded-md transition-colors"
                     >
                       {skillName}
                     </span>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Mail, MapPin, CheckCircle2, ArrowRight, Send, Check } from 'lucide-react';
+import { Mail, MapPin, CheckCircle2, ArrowRight, Check } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { LinkedInIcon } from '@/components/ui/Icons';
 import { socialLinks } from '@/data/social';
@@ -20,7 +20,6 @@ export const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mailto fallback trigger
     const mailtoUrl = `mailto:yaswanthgedela27@gmail.com?subject=${encodeURIComponent(formState.subject + ' - from ' + formState.name)}&body=${encodeURIComponent(formState.message + '\n\nSender Email: ' + formState.email)}`;
     window.location.href = mailtoUrl;
     setSubmitted(true);
@@ -28,10 +27,10 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-24 bg-[#0A0F0C] border-t border-[#19241C] relative overflow-hidden">
-      {/* Ambient background glow */}
+    <section id="contact" className="py-20 sm:py-24 bg-[#0B1117] border-t border-[#17261D] relative overflow-hidden">
+      {/* Ambient background glow in template green */}
       <div
-        className="absolute bottom-0 right-0 w-[400px] h-[400px] ambient-glow-lime rounded-full blur-3xl opacity-15 pointer-events-none"
+        className="absolute bottom-0 right-0 w-[400px] h-[400px] ambient-glow-green rounded-full blur-3xl opacity-20 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -39,26 +38,26 @@ export const Contact: React.FC = () => {
         
         {/* Section Header */}
         <div className="space-y-3 mb-12 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E1410] border border-[#19241C] text-[#CCFF00] text-xs font-mono font-bold uppercase tracking-wider">
-            <span>CONTACT</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1410] border border-[#17261D] text-[#00DC82] text-xs font-mono font-bold uppercase tracking-wider">
+            <span>05 / CONTACT</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F4F9F5] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#FFFFFF] tracking-tight">
             Let&apos;s build something scalable together.
           </h2>
-          <p className="text-sm text-[#94A899] max-w-2xl">
+          <p className="text-sm text-[#9CA3AF] max-w-2xl leading-relaxed">
             Have a project in mind, need infrastructure automation, or exploring new cloud opportunities? I&apos;d love to hear from you.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left Column: Direct Channels & Status (Matching Screenshot) */}
+          {/* Left Column: Direct Channels & Status */}
           <div className="lg:col-span-5 space-y-6">
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-[#F4F9F5]">
+              <h3 className="text-lg font-bold text-[#FFFFFF]">
                 Direct Contact Channels
               </h3>
-              <p className="text-xs sm:text-sm text-[#94A899] leading-relaxed">
+              <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
                 Reach out through email or LinkedIn. I typically respond within 24 hours.
               </p>
             </div>
@@ -67,14 +66,14 @@ export const Contact: React.FC = () => {
               {/* Email */}
               <a
                 href={emailLink}
-                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1410] border border-[#19241C] text-[#94A899] hover:text-[#CCFF00] hover:border-[#CCFF00]/40 transition-all duration-200 group"
+                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D1410] border border-[#17261D] text-[#9CA3AF] hover:text-[#00DC82] hover:border-[#00DC82]/50 transition-all duration-200 group"
               >
-                <div className="p-2 rounded-lg bg-[#141E17] text-[#CCFF00] group-hover:bg-[#CCFF00] group-hover:text-[#060907] transition-colors">
+                <div className="p-2 rounded-lg bg-[#080D0A] text-[#00DC82] group-hover:bg-[#00DC82] group-hover:text-[#050806] transition-colors">
                   <Mail className="h-4 w-4" />
                 </div>
                 <div className="truncate">
-                  <div className="text-[10px] text-[#667A6B] uppercase">EMAIL</div>
-                  <div className="font-semibold text-[#F4F9F5] group-hover:text-[#CCFF00] truncate">
+                  <div className="text-[10px] text-[#64748B] uppercase">EMAIL</div>
+                  <div className="font-semibold text-[#FFFFFF] group-hover:text-[#00DC82] truncate">
                     yaswanthgedela27@gmail.com
                   </div>
                 </div>
@@ -85,41 +84,41 @@ export const Contact: React.FC = () => {
                 href={linkedinLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1410] border border-[#19241C] text-[#94A899] hover:text-[#CCFF00] hover:border-[#CCFF00]/40 transition-all duration-200 group"
+                className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D1410] border border-[#17261D] text-[#9CA3AF] hover:text-[#00DC82] hover:border-[#00DC82]/50 transition-all duration-200 group"
               >
-                <div className="p-2 rounded-lg bg-[#141E17] text-[#CCFF00] group-hover:bg-[#CCFF00] group-hover:text-[#060907] transition-colors">
+                <div className="p-2 rounded-lg bg-[#080D0A] text-[#00DC82] group-hover:bg-[#00DC82] group-hover:text-[#050806] transition-colors">
                   <LinkedInIcon className="h-4 w-4" />
                 </div>
                 <div className="truncate">
-                  <div className="text-[10px] text-[#667A6B] uppercase">LINKEDIN</div>
-                  <div className="font-semibold text-[#F4F9F5] group-hover:text-[#CCFF00] truncate">
+                  <div className="text-[10px] text-[#64748B] uppercase">LINKEDIN</div>
+                  <div className="font-semibold text-[#FFFFFF] group-hover:text-[#00DC82] truncate">
                     yaswanth-gedela-84946b250
                   </div>
                 </div>
               </a>
 
               {/* Location */}
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1410] border border-[#19241C] text-[#94A899]">
-                <div className="p-2 rounded-lg bg-[#141E17] text-[#A3E635]">
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D1410] border border-[#17261D] text-[#9CA3AF]">
+                <div className="p-2 rounded-lg bg-[#080D0A] text-[#00DC82]">
                   <MapPin className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-[#667A6B] uppercase">LOCATION</div>
-                  <div className="font-semibold text-[#F4F9F5]">
+                  <div className="text-[10px] text-[#64748B] uppercase">LOCATION</div>
+                  <div className="font-semibold text-[#FFFFFF]">
                     Remote / Hybrid
                   </div>
                 </div>
               </div>
 
               {/* Availability */}
-              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0E1410] border border-[#19241C] text-[#94A899]">
-                <div className="p-2 rounded-lg bg-[#141E17] text-[#CCFF00]">
+              <div className="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D1410] border border-[#17261D] text-[#9CA3AF]">
+                <div className="p-2 rounded-lg bg-[#080D0A] text-[#00DC82]">
                   <CheckCircle2 className="h-4 w-4" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-[#667A6B] uppercase">AVAILABILITY</div>
-                  <div className="font-semibold text-[#CCFF00] flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-pulse" />
+                  <div className="text-[10px] text-[#64748B] uppercase">AVAILABILITY</div>
+                  <div className="font-semibold text-[#00DC82] flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#00DC82] animate-pulse shadow-[0_0_8px_#00DC82]" />
                     <span>Available for full-time &amp; contracts</span>
                   </div>
                 </div>
@@ -127,14 +126,14 @@ export const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Sleek Dark Contact Form (Matching Screenshot) */}
-          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#0E1410] border border-[#19241C] shadow-2xl">
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-[#0D1410] border border-[#17261D] shadow-2xl">
             <form onSubmit={handleSubmit} className="space-y-4">
               
               {/* Name & Email Row */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-name" className="text-xs font-mono text-[#94A899]">
+                  <label htmlFor="contact-name" className="text-xs font-mono text-[#9CA3AF]">
                     Your name
                   </label>
                   <input
@@ -144,12 +143,12 @@ export const Contact: React.FC = () => {
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     placeholder="Jane Doe"
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#060907] border border-[#19241C] focus:border-[#CCFF00] focus:ring-1 focus:ring-[#CCFF00] text-sm text-[#F4F9F5] placeholder-[#667A6B] outline-none transition-colors font-mono"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#050806] border border-[#17261D] focus:border-[#00DC82] focus:ring-1 focus:ring-[#00DC82] text-sm text-[#FFFFFF] placeholder-[#64748B] outline-none transition-colors font-mono"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-email" className="text-xs font-mono text-[#94A899]">
+                  <label htmlFor="contact-email" className="text-xs font-mono text-[#9CA3AF]">
                     Your Email
                   </label>
                   <input
@@ -159,21 +158,21 @@ export const Contact: React.FC = () => {
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     placeholder="jane@company.com"
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#060907] border border-[#19241C] focus:border-[#CCFF00] focus:ring-1 focus:ring-[#CCFF00] text-sm text-[#F4F9F5] placeholder-[#667A6B] outline-none transition-colors font-mono"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#050806] border border-[#17261D] focus:border-[#00DC82] focus:ring-1 focus:ring-[#00DC82] text-sm text-[#FFFFFF] placeholder-[#64748B] outline-none transition-colors font-mono"
                   />
                 </div>
               </div>
 
               {/* Project Type */}
               <div className="space-y-1.5">
-                <label htmlFor="contact-project-type" className="text-xs font-mono text-[#94A899]">
+                <label htmlFor="contact-project-type" className="text-xs font-mono text-[#9CA3AF]">
                   Project Type / Inquiry
                 </label>
                 <select
                   id="contact-project-type"
                   value={formState.subject}
                   onChange={(e) => setFormState({ ...formState, subject: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#060907] border border-[#19241C] focus:border-[#CCFF00] focus:ring-1 focus:ring-[#CCFF00] text-sm text-[#F4F9F5] outline-none transition-colors font-mono"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#050806] border border-[#17261D] focus:border-[#00DC82] focus:ring-1 focus:ring-[#00DC82] text-sm text-[#FFFFFF] outline-none transition-colors font-mono"
                 >
                   <option value="AWS Cloud Infrastructure Setup">AWS Cloud Infrastructure Setup</option>
                   <option value="Terraform Infrastructure as Code">Terraform Infrastructure as Code</option>
@@ -186,7 +185,7 @@ export const Contact: React.FC = () => {
 
               {/* Message Area */}
               <div className="space-y-1.5">
-                <label htmlFor="contact-message" className="text-xs font-mono text-[#94A899]">
+                <label htmlFor="contact-message" className="text-xs font-mono text-[#9CA3AF]">
                   Tell me about your project...
                 </label>
                 <textarea
@@ -196,18 +195,18 @@ export const Contact: React.FC = () => {
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   placeholder="Describe your infrastructure goals, timeline, and tech stack..."
-                  className="w-full px-4 py-3 rounded-xl bg-[#060907] border border-[#19241C] focus:border-[#CCFF00] focus:ring-1 focus:ring-[#CCFF00] text-sm text-[#F4F9F5] placeholder-[#667A6B] outline-none transition-colors font-mono resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-[#050806] border border-[#17261D] focus:border-[#00DC82] focus:ring-1 focus:ring-[#00DC82] text-sm text-[#FFFFFF] placeholder-[#64748B] outline-none transition-colors font-mono resize-none"
                 />
               </div>
 
-              {/* Submit Button (Solid Lime Matching Screenshot) */}
+              {/* Submit Button in Emerald Pill style matching template */}
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-[#CCFF00] text-[#060907] font-mono font-bold text-xs uppercase tracking-wider hover:bg-[#B8F500] hover:shadow-[0_0_25px_rgba(204,255,0,0.5)] active:translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full py-3.5 px-6 rounded-full bg-[#00DC82] text-[#050806] font-mono font-bold text-xs uppercase tracking-wider hover:bg-[#00C575] hover:shadow-[0_0_25px_rgba(0,220,130,0.5)] active:translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
                 {submitted ? (
                   <>
-                    <Check className="h-4 w-4 text-[#060907]" />
+                    <Check className="h-4 w-4 text-[#050806]" />
                     <span>OPENING EMAIL CLIENT...</span>
                   </>
                 ) : (

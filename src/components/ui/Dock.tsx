@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, MotionValue, HTMLMotionProps } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, MotionValue } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 export interface DockProps {
@@ -9,6 +9,7 @@ export interface DockProps {
   magnification?: number;
   distance?: number;
   direction?: 'top' | 'middle' | 'bottom';
+  variant?: 'dark' | 'light';
   children: React.ReactNode;
 }
 
@@ -22,19 +23,21 @@ export const Dock = React.forwardRef<HTMLDivElement, DockProps>(
       children,
       magnification = DEFAULT_MAGNIFICATION,
       distance = DEFAULT_DISTANCE,
-      direction = 'middle',
+      variant = 'dark',
     },
     ref
   ) => {
+    const isLight = variant === 'light';
     const mouseX = useMotionValue(Infinity);
 
     const renderChildren = () => {
       return React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child as React.ReactElement<any>, {
+          return React.cloneElement(child as React.ReactElement<DockIconProps>, {
             mouseX: mouseX,
             magnification: magnification,
             distance: distance,
+            variant: variant,
           });
         }
         return child;
@@ -47,7 +50,10 @@ export const Dock = React.forwardRef<HTMLDivElement, DockProps>(
         onMouseMove={(e) => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         className={cn(
-          'flex h-[54px] w-max items-center gap-2.5 rounded-2xl border border-[#19241C] bg-[#0E1410]/90 px-3 py-2 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:border-[#CCFF00]/40 transition-colors',
+          'flex h-[54px] w-max items-center gap-2.5 rounded-2xl px-3 py-2 backdrop-blur-md transition-colors',
+          isLight
+            ? 'border border-[#E2DDD3] bg-white/85 shadow-[0_10px_25px_rgba(0,0,0,0.06)] hover:border-[#047857]/40'
+            : 'border border-[#17261D] bg-[#0D1410]/90 shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:border-[#00DC82]/50',
           className
         )}
       >
@@ -63,18 +69,20 @@ export interface DockIconProps {
   magnification?: number;
   distance?: number;
   mouseX?: MotionValue<number>;
+  variant?: 'dark' | 'light';
   className?: string;
   children?: React.ReactNode;
 }
 
 export const DockIcon: React.FC<DockIconProps> = ({
-  size = 40,
   magnification = DEFAULT_MAGNIFICATION,
   distance = DEFAULT_DISTANCE,
   mouseX,
+  variant = 'dark',
   className,
   children,
 }) => {
+  const isLight = variant === 'light';
   const ref = useRef<HTMLDivElement>(null);
 
   const fallbackMouseX = useMotionValue(Infinity);
@@ -102,7 +110,10 @@ export const DockIcon: React.FC<DockIconProps> = ({
       ref={ref}
       style={{ width, height: width }}
       className={cn(
-        'flex aspect-square cursor-pointer items-center justify-center rounded-xl relative text-[#94A899] hover:text-[#CCFF00] hover:bg-[#CCFF00]/10 transition-colors duration-150',
+        'flex aspect-square cursor-pointer items-center justify-center rounded-xl relative transition-colors duration-150',
+        isLight
+          ? 'text-[#475569] hover:text-[#047857] hover:bg-[#047857]/10'
+          : 'text-[#9CA3AF] hover:text-[#00DC82] hover:bg-[#00DC82]/15',
         className
       )}
     >

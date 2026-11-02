@@ -7,6 +7,7 @@ export interface SectionHeadingProps {
   description?: string;
   align?: 'left' | 'center';
   className?: string;
+  showLine?: boolean;
 }
 
 export const SectionHeading: React.FC<SectionHeadingProps> = ({
@@ -15,6 +16,7 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
   description,
   align = 'left',
   className,
+  showLine = true,
 }) => {
   return (
     <div
@@ -25,22 +27,21 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       )}
     >
       {label && (
-        <div className="flex items-center gap-2 mb-2 sm:mb-2.5">
-          <span className="font-mono text-xs sm:text-[13px] font-semibold tracking-wider text-[#CCFF00]">
+        <div className="flex items-center gap-2 mb-2.5 sm:mb-3">
+          <span className="font-mono text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#00DC82] bg-[#0D1410] border border-[#17261D] px-2.5 py-0.5 rounded">
             {label}
           </span>
-          <span className="h-px w-8 bg-[#19241C]" />
+          {showLine && <span className="h-px w-8 bg-[#17261D]" />}
         </div>
       )}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-[#F4F9F5]">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#FFFFFF]">
         {title}
       </h2>
       {description && (
-        <p className="mt-2 text-sm sm:text-base text-[#94A3B8] leading-relaxed">
+        <p className="mt-2 text-sm sm:text-base text-[#9CA3AF] leading-relaxed">
           {description}
         </p>
       )}
     </div>
   );
 };
-

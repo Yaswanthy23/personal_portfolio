@@ -16,9 +16,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const assetUrl = getAssetUrl(project.asset?.url || '/assets/placeholders/default-diagram.svg');
 
   return (
-    <div className="group relative flex flex-col justify-between rounded-xl bg-[#172033] border border-[#263449] hover:border-[#FF9900]/50 hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.5),0_0_15px_-3px_rgba(255,153,0,0.15)] overflow-hidden">
+    <div className="group relative flex flex-col justify-between rounded-2xl bg-[#0D1410] border border-[#17261D] hover:border-[#00DC82] hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.5),0_0_25px_-3px_rgba(0,220,130,0.25)] overflow-hidden">
       {/* Top Diagram / Preview Media */}
-      <div className="relative w-full h-48 sm:h-52 bg-[#0E172A] border-b border-[#263449] overflow-hidden">
+      <div className="relative w-full h-48 sm:h-52 bg-[#080D0A] border-b border-[#17261D] overflow-hidden">
         <Image
           src={assetUrl}
           alt={project.asset?.alt || project.title}
@@ -27,7 +27,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute top-3 right-3">
-          <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded bg-[#0B1120]/80 text-[#22D3EE] border border-[#22D3EE]/30 backdrop-blur-sm">
+          <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-[#0D1410]/90 text-[#00DC82] border border-[#00DC82]/30 backdrop-blur-sm">
             <Layers className="h-3 w-3" />
             Architecture
           </span>
@@ -38,13 +38,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
         <div className="space-y-3">
           {/* Title */}
-          <h3 className="text-lg font-bold text-[#F8FAFC] group-hover:text-[#FF9900] transition-colors flex items-center justify-between">
+          <h3 className="text-lg font-bold text-[#FFFFFF] group-hover:text-[#00DC82] transition-colors flex items-center justify-between">
             <span>{project.title}</span>
-            <ArrowRight className="h-4 w-4 text-[#94A3B8] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#FF9900]" />
+            <ArrowRight className="h-4 w-4 text-[#9CA3AF] transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#00DC82]" />
           </h3>
 
           {/* Tagline / Description */}
-          <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed line-clamp-3">
+          <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed line-clamp-3">
             {project.description}
           </p>
 
@@ -53,7 +53,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-[#111827] border border-[#263449] text-[#94A3B8] group-hover:border-[#374863] transition-colors"
+                className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-[#080D0A] border border-[#17261D] text-[#9CA3AF] group-hover:border-[#234230] group-hover:text-[#FFFFFF] transition-colors"
               >
                 {tag}
               </span>
@@ -62,7 +62,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
 
         {/* Action Buttons */}
-        <div className="pt-4 border-t border-[#263449] flex items-center justify-between gap-3">
+        <div className="pt-4 border-t border-[#17261D] flex items-center justify-between gap-3">
           <Button
             variant="primary"
             size="sm"

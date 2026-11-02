@@ -51,18 +51,18 @@ const SERVICES = [
 
 export const SkillsServices: React.FC = () => {
   return (
-    <section id="skills" className="py-20 sm:py-24 bg-[#060907] border-t border-[#19241C] relative">
+    <section id="skills" className="py-20 sm:py-24 bg-[#050806] border-t border-[#17261D] relative">
       <Container size="lg">
         
         {/* Section Header */}
         <div className="space-y-3 mb-12 text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0E1410] border border-[#19241C] text-[#CCFF00] text-xs font-mono font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1410] border border-[#17261D] text-[#00DC82] text-xs font-mono font-bold uppercase tracking-wider">
             <span>SKILLS &amp; SERVICES</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F4F9F5] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#FFFFFF] tracking-tight">
             Core competencies &amp; engineering capabilities
           </h2>
-          <p className="text-sm text-[#94A899] max-w-2xl">
+          <p className="text-sm text-[#9CA3AF] max-w-2xl">
             Practical infrastructure engineering skills applied across production AWS cloud and containerized environments.
           </p>
         </div>
@@ -74,31 +74,31 @@ export const SkillsServices: React.FC = () => {
             return (
               <div
                 key={service.title}
-                className="p-6 rounded-2xl bg-[#0E1410] border border-[#19241C] hover:border-[#CCFF00]/50 hover:shadow-[0_0_30px_rgba(204,255,0,0.1)] transition-all duration-300 flex flex-col justify-between group space-y-4"
+                className="p-6 rounded-2xl bg-[#0D1410] border border-[#17261D] hover:border-[#00DC82]/50 hover:shadow-[0_0_30px_rgba(0,220,130,0.15)] transition-all duration-300 flex flex-col justify-between group space-y-4"
               >
                 <div className="space-y-4">
-                  {/* Icon with lime accent */}
-                  <div className="w-12 h-12 rounded-xl bg-[#141E17] border border-[#1E2D22] flex items-center justify-center text-[#CCFF00] group-hover:bg-[#CCFF00] group-hover:text-[#060907] group-hover:shadow-[0_0_15px_#CCFF00] transition-all duration-300">
+                  {/* Icon with emerald green accent */}
+                  <div className="w-12 h-12 rounded-xl bg-[#080D0A] border border-[#17261D] flex items-center justify-center text-[#00DC82] group-hover:bg-[#00DC82] group-hover:text-[#050806] group-hover:shadow-[0_0_15px_#00DC82] transition-all duration-300">
                     <Icon className="h-5 w-5" />
                   </div>
 
                   {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="text-base sm:text-lg font-bold text-[#F4F9F5] group-hover:text-[#CCFF00] transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-[#FFFFFF] group-hover:text-[#00DC82] transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#94A899] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
                       {service.description}
                     </p>
                   </div>
                 </div>
 
                 {/* Tags */}
-                <div className="pt-3 border-t border-[#19241C] flex flex-wrap gap-1.5">
+                <div className="pt-3 border-t border-[#17261D] flex flex-wrap gap-1.5">
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-0.5 text-[10px] font-mono text-[#667A6B] bg-[#090D0A] border border-[#162018] rounded"
+                      className="px-2 py-0.5 text-[10px] font-mono text-[#9CA3AF] bg-[#080D0A] border border-[#17261D] rounded"
                     >
                       {tag}
                     </span>

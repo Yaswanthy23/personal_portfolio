@@ -7,10 +7,10 @@ import { experienceData } from '@/data/experience';
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="py-14 sm:py-16 md:py-20 bg-[#060907] border-t border-[#19241C] relative overflow-hidden">
+    <section id="experience" className="py-14 sm:py-16 md:py-20 bg-[#0B1117] border-t border-[#17261D] relative overflow-hidden">
       {/* Ambient glow for depth */}
       <div
-        className="absolute top-1/3 right-10 w-[350px] h-[350px] ambient-glow-lime rounded-full blur-3xl opacity-15 pointer-events-none"
+        className="absolute top-1/3 right-10 w-[350px] h-[350px] ambient-glow-green rounded-full blur-3xl opacity-20 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -27,32 +27,32 @@ export const Experience: React.FC = () => {
             {experienceData.map((item) => (
               <Card
                 key={item.id}
-                className="p-6 sm:p-7 bg-[#0E1410] border border-[#19241C] relative group hover:border-[#CCFF00]/40 transition-colors"
+                className="p-6 sm:p-7 bg-[#0D1410] border border-[#17261D] relative group hover:border-[#00DC82]/50 transition-colors shadow-lg"
               >
                 {/* Header: Role, Company, Period */}
-                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 pb-3.5 border-b border-[#19241C]">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 pb-3.5 border-b border-[#17261D]">
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#F4F9F5]">
+                    <h3 className="text-lg sm:text-xl font-bold text-[#FFFFFF]">
                       {item.role}
                     </h3>
-                    <div className="text-sm font-medium text-[#CCFF00] mt-0.5">
-                      {item.company} <span className="text-[#667A6B] font-normal">• {item.location}</span>
+                    <div className="text-sm font-medium text-[#00DC82] mt-0.5">
+                      {item.company} <span className="text-[#64748B] font-normal">• {item.location}</span>
                     </div>
                   </div>
-                  <div className="font-mono text-xs text-[#94A899] sm:text-right">
+                  <div className="font-mono text-xs text-[#9CA3AF] sm:text-right">
                     {item.period}
                   </div>
                 </div>
 
                 {/* Responsibilities list */}
                 <div className="pt-4 space-y-2.5">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-[#667A6B]">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-[#64748B]">
                     Key Responsibilities &amp; Engineering Work
                   </h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-[#94A899] leading-relaxed">
+                  <ul className="space-y-2 text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">
                     {item.responsibilities.map((resp, idx) => (
                       <li key={idx} className="flex items-start gap-2.5">
-                        <span className="text-[#CCFF00] mt-1 shrink-0 text-xs">▪</span>
+                        <span className="text-[#00DC82] mt-1 shrink-0 text-xs">▪</span>
                         <span>{resp}</span>
                       </li>
                     ))}
@@ -60,11 +60,11 @@ export const Experience: React.FC = () => {
                 </div>
 
                 {/* Tech Stack Pills */}
-                <div className="pt-4 mt-4 border-t border-[#19241C] flex flex-wrap items-center gap-2">
+                <div className="pt-4 mt-4 border-t border-[#17261D] flex flex-wrap items-center gap-2">
                   {item.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="inline-flex items-center text-xs font-mono px-2.5 py-1 rounded bg-[#060907] border border-[#19241C] text-[#94A899]"
+                      className="inline-flex items-center text-xs font-mono px-2.5 py-1 rounded bg-[#080D0A] border border-[#17261D] text-[#9CA3AF]"
                     >
                       {tech}
                     </span>
