@@ -3,14 +3,27 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Card } from '@/components/ui/Card';
 import { HangingIdCard } from '@/components/ui/HangingIdCard';
+import { FlickeringGrid } from '@/components/ui/FlickeringGrid';
 import { experienceData } from '@/data/experience';
 
 export const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-14 sm:py-16 md:py-20 bg-[#FBF7F4] border-t border-[#E8D8CC] relative overflow-hidden">
+      {/* Magic UI Flickering Grid Background Layer (Transparent layer over original #FBF7F4 background) */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-transparent">
+        <FlickeringGrid
+          color="#FFB800"
+          maxOpacity={0.12}
+          squareSize={4}
+          gridGap={6}
+          flickerChance={0.3}
+          className="w-full h-full bg-transparent"
+        />
+      </div>
+
       {/* Ambient glow for depth */}
       <div
-        className="absolute top-1/3 right-10 w-[350px] h-[350px] ambient-glow-sand rounded-full blur-3xl opacity-50 pointer-events-none"
+        className="absolute top-1/3 right-10 w-[350px] h-[350px] ambient-glow-sand rounded-full blur-3xl opacity-50 pointer-events-none z-0"
         aria-hidden="true"
       />
 

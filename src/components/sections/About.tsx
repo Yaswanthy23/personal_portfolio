@@ -1,8 +1,9 @@
 import React from 'react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { TagCloud3D } from '@/components/ui/TagCloud3D';
+import { IconCloud } from '@/components/ui/IconCloud';
 import { profileData } from '@/data/profile';
+
 export const About: React.FC = () => {
   return (
     <section id="about" className="py-14 sm:py-16 md:py-20 bg-[#B4532A] border-t border-[#9C431D] relative overflow-hidden">
@@ -15,9 +16,9 @@ export const About: React.FC = () => {
       <Container size="lg" className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Interactive 3D Skills Sphere Tag Cloud */}
+          {/* Left Column: Interactive 3D AWS & DevOps Icon Cloud */}
           <div className="lg:col-span-5 flex justify-center w-full">
-            <TagCloud3D />
+            <IconCloud />
           </div>
 
           {/* Right Column: About Section Narrative */}
