@@ -23,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00DC82] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0B1117] disabled:opacity-50 disabled:pointer-events-none rounded-full cursor-pointer select-none group';
+    'inline-flex items-center justify-center font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#B4532A] focus-visible:ring-offset-2 focus-visible:ring-offset-[#FBF7F4] disabled:opacity-50 disabled:pointer-events-none rounded-full cursor-pointer select-none group';
 
   const sizeStyles = {
     sm: 'text-xs px-4 py-2 gap-1.5',
@@ -33,13 +33,13 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantStyles = {
     primary:
-      'bg-[#00DC82] text-[#050806] font-semibold hover:bg-[#00C575] hover:shadow-[0_0_24px_rgba(0,220,130,0.45)] hover:-translate-y-0.5 active:translate-y-0 shadow-md',
+      'bg-[#B4532A] text-[#FFFFFF] font-bold hover:bg-[#9C431D] hover:shadow-[0_4px_20px_rgba(180,83,42,0.35)] hover:-translate-y-0.5 active:translate-y-0 shadow-md',
     secondary:
-      'bg-[#0D1410] text-[#FFFFFF] border border-[#17261D] hover:border-[#00DC82] hover:text-[#00DC82] hover:bg-[#131E17] hover:-translate-y-0.5 active:translate-y-0',
+      'bg-[#F5EBE1] text-[#2A211B] border border-[#E8D8CC] hover:border-[#B4532A] hover:text-[#B4532A] hover:bg-[#FFFFFF] hover:-translate-y-0.5 active:translate-y-0 font-medium',
     outline:
-      'bg-transparent text-[#FFFFFF] border border-[#17261D] hover:border-[#00DC82] hover:text-[#00DC82] hover:bg-[#00DC82]/10 hover:-translate-y-0.5 active:translate-y-0',
+      'bg-transparent text-[#B4532A] border border-[#B4532A] hover:border-[#9C431D] hover:text-[#FFFFFF] hover:bg-[#B4532A] hover:-translate-y-0.5 active:translate-y-0 font-medium',
     ghost:
-      'bg-transparent text-[#9CA3AF] hover:text-[#FFFFFF] hover:bg-[#0D1410] active:scale-[0.99]',
+      'bg-transparent text-[#7A6D65] hover:text-[#2A211B] hover:bg-[#F5EBE1] active:scale-[0.99]',
   };
 
   const combinedClasses = cn(baseStyles, sizeStyles[size], variantStyles[variant], className);

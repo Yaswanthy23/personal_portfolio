@@ -5,10 +5,10 @@ import { TagCloud3D } from '@/components/ui/TagCloud3D';
 import { profileData } from '@/data/profile';
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-14 sm:py-16 md:py-20 bg-[#0B1117] border-t border-[#17261D] relative overflow-hidden">
+    <section id="about" className="py-14 sm:py-16 md:py-20 bg-[#B4532A] border-t border-[#9C431D] relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div
-        className="absolute top-1/2 left-10 -translate-y-1/2 w-[350px] h-[350px] ambient-glow-green rounded-full blur-3xl opacity-20 pointer-events-none"
+        className="absolute top-1/2 left-10 -translate-y-1/2 w-[350px] h-[350px] ambient-glow-peach rounded-full blur-3xl opacity-25 pointer-events-none"
         aria-hidden="true"
       />
 
@@ -24,13 +24,18 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <SectionHeading
               label="01 / ABOUT ME"
-              title="A little about me"
+              title={
+                <>
+                  A little <span className="text-[#E8B89C]">about me</span>
+                </>
+              }
               description="Transforming manual operations into scalable, self-healing cloud infrastructure."
               showLine={false}
+              variant="dark"
               className="mb-6"
             />
 
-            <div className="space-y-4 text-sm sm:text-base text-[#9CA3AF] leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-[#F5EBE1] leading-relaxed">
               <p>
                 {profileData.aboutStory.intro}
               </p>

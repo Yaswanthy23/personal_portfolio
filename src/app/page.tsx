@@ -11,7 +11,7 @@ import { ScrollToTop } from '@/components/common/ScrollToTop';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#0B1117] text-[#FFFFFF]">
+    <div className="flex min-h-screen flex-col bg-[#FBF7F4] text-[#2A211B]">
       {/* Sticky Navigation */}
       <Navbar />
 

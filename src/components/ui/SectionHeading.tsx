@@ -3,21 +3,41 @@ import { cn } from '@/lib/utils';
 
 export interface SectionHeadingProps {
   label?: string; // e.g. "01 / ABOUT"
-  title: string;  // e.g. "A little about me"
+  title: React.ReactNode;  // e.g. "A little about me" or with highlighted span
+  highlight?: string;      // optional substring to highlight in exact orange (#FFA800)
   description?: string;
   align?: 'left' | 'center';
   className?: string;
   showLine?: boolean;
+  variant?: 'light' | 'dark';
 }
 
 export const SectionHeading: React.FC<SectionHeadingProps> = ({
   label,
   title,
+  highlight,
   description,
   align = 'left',
   className,
   showLine = true,
+  variant = 'light',
 }) => {
+  const isDark = variant === 'dark';
+
+  const renderTitle = () => {
+    if (typeof title === 'string' && highlight && title.includes(highlight)) {
+      const parts = title.split(highlight);
+      return (
+        <>
+          {parts[0]}
+          <span className={isDark ? 'text-[#E8B89C]' : 'text-[#B4532A]'}>{highlight}</span>
+          {parts.slice(1).join(highlight)}
+        </>
+      );
+    }
+    return title;
+  };
+
   return (
     <div
       className={cn(
@@ -28,17 +48,41 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     >
       {label && (
         <div className="flex items-center gap-2 mb-2.5 sm:mb-3">
-          <span className="font-mono text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#00DC82] bg-[#0D1410] border border-[#17261D] px-2.5 py-0.5 rounded">
+          <span
+            className={cn(
+              'font-mono text-[11px] sm:text-xs font-bold tracking-wider uppercase px-2.5 py-0.5 rounded',
+              isDark
+                ? 'text-[#E8B89C] bg-[#7D3414] border border-[#C4653D]'
+                : 'text-[#B4532A] bg-[#F5EBE1] border border-[#E8D8CC]'
+            )}
+          >
             {label}
           </span>
-          {showLine && <span className="h-px w-8 bg-[#17261D]" />}
+          {showLine && (
+            <span
+              className={cn(
+                'h-px w-8',
+                isDark ? 'bg-[#C4653D]' : 'bg-[#E8D8CC]'
+              )}
+            />
+          )}
         </div>
       )}
-      <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#FFFFFF]">
-        {title}
+      <h2
+        className={cn(
+          'text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight',
+          isDark ? 'text-[#FFFFFF]' : 'text-[#2A211B]'
+        )}
+      >
+        {renderTitle()}
       </h2>
       {description && (
-        <p className="mt-2 text-sm sm:text-base text-[#9CA3AF] leading-relaxed">
+        <p
+          className={cn(
+            'mt-2 text-sm sm:text-base leading-relaxed',
+            isDark ? 'text-[#F5EBE1]' : 'text-[#7A6D65]'
+          )}
+        >
           {description}
         </p>
       )}

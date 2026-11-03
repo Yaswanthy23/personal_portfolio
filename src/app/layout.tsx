@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0B1117',
+  themeColor: '#B4532A',
   width: 'device-width',
   initialScale: 1,
 };
@@ -79,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} font-sans scroll-smooth dark`}
+      className={`${poppins.variable} font-sans scroll-smooth`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -93,7 +93,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#0B1117] text-[#FFFFFF] font-sans antialiased selection:bg-[#00DC82]/30 selection:text-[#FFFFFF]">
+      <body className="bg-[#FBF7F4] text-[#2A211B] font-sans antialiased selection:bg-[#B4532A]/20 selection:text-[#2A211B]">
         {children}
       </body>
     </html>

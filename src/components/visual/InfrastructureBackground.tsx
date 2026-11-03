@@ -109,8 +109,8 @@ export const InfrastructureBackground: React.FC = () => {
           y = height * (0.15 + Math.random() * 0.7);
         }
 
-        const isGreenAccent = i === 3 || i === 11;
-        const isMintLight = i % 3 === 0;
+        const isTerracottaAccent = i === 3 || i === 11;
+        const isSecondary = i % 3 === 0;
 
         nodes.push({
           x,
@@ -119,9 +119,9 @@ export const InfrastructureBackground: React.FC = () => {
           baseY: y,
           vx: 0,
           vy: 0,
-          radius: isGreenAccent ? 3.5 : isMintLight ? 2.5 : 2,
-          color: isGreenAccent ? '#00DC82' : isMintLight ? '#34D399' : '#17261D',
-          isAccent: isGreenAccent,
+          radius: isTerracottaAccent ? 3.5 : isSecondary ? 2.5 : 2,
+          color: isTerracottaAccent ? '#B4532A' : isSecondary ? '#C8653B' : '#7A3515',
+          isAccent: isTerracottaAccent,
         });
       }
 
@@ -172,9 +172,9 @@ export const InfrastructureBackground: React.FC = () => {
         const fromIdx = reverse ? conn.to : conn.from;
         const toIdx = reverse ? conn.from : conn.to;
 
-        // Color variants in emerald & mint palette
+        // Color variants in terracotta palette
         const colorRand = Math.random();
-        const color = colorRand > 0.6 ? '#00DC82' : colorRand > 0.3 ? '#34D399' : '#10B981';
+        const color = colorRand > 0.5 ? '#B4532A' : '#D48660';
 
         packets.push({
           connectionIndex: randomConnIdx,
@@ -230,11 +230,11 @@ export const InfrastructureBackground: React.FC = () => {
           const nodeB = nodes[conn.to];
           if (!nodeA || !nodeB) return;
 
-          const baseOpacity = 0.12 * lineAlphaProgress;
+          const baseOpacity = 0.16 * lineAlphaProgress;
           ctx.beginPath();
           ctx.moveTo(nodeA.x, nodeA.y);
           ctx.lineTo(nodeB.x, nodeB.y);
-          ctx.strokeStyle = `rgba(0, 220, 130, ${baseOpacity})`;
+          ctx.strokeStyle = `rgba(180, 83, 42, ${baseOpacity})`;
           ctx.lineWidth = 1;
           ctx.stroke();
         });
@@ -256,7 +256,7 @@ export const InfrastructureBackground: React.FC = () => {
           const curY = fromNode.y + (toNode.y - fromNode.y) * packet.progress;
 
           // Packet glow and core
-          const packetAlpha = Math.sin(packet.progress * Math.PI) * 0.65;
+          const packetAlpha = Math.sin(packet.progress * Math.PI) * 0.75;
 
           ctx.beginPath();
           ctx.arc(curX, curY, packet.size, 0, Math.PI * 2);
@@ -282,12 +282,12 @@ export const InfrastructureBackground: React.FC = () => {
 
           if (node.isAccent) {
             ctx.fillStyle = node.color;
-            ctx.globalAlpha = 0.8 * nodeAlphaProgress;
-            ctx.shadowColor = '#00DC82';
-            ctx.shadowBlur = 4;
+            ctx.globalAlpha = 0.9 * nodeAlphaProgress;
+            ctx.shadowColor = '#B4532A';
+            ctx.shadowBlur = 6;
           } else {
             ctx.fillStyle = node.color;
-            ctx.globalAlpha = 0.5 * nodeAlphaProgress;
+            ctx.globalAlpha = 0.65 * nodeAlphaProgress;
             ctx.shadowBlur = 0;
           }
 

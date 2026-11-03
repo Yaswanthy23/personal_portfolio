@@ -59,13 +59,13 @@ export const TooltipContent: React.FC<{
           transition={{ duration: 0.15, ease: 'easeOut' }}
           style={{ bottom: `calc(100% + ${sideOffset}px)` }}
           className={cn(
-            'absolute left-1/2 -translate-x-1/2 z-50 pointer-events-none whitespace-nowrap rounded-md border border-[#17261D] bg-[#0D1410] px-2.5 py-1 text-[11px] font-mono font-medium text-[#FFFFFF] shadow-[0_4px_16px_rgba(0,0,0,0.6)]',
+            'absolute left-1/2 -translate-x-1/2 z-50 pointer-events-none whitespace-nowrap rounded-md border border-[#C4653D] bg-[#7D3414] px-2.5 py-1 text-[11px] font-mono font-medium text-[#FFFFFF] shadow-[0_4px_16px_rgba(0,0,0,0.3)]',
             className
           )}
         >
           {children}
           {/* Arrow */}
-          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#17261D]" />
+          <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#7D3414]" />
         </motion.div>
       )}
     </AnimatePresence>

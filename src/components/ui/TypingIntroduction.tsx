@@ -7,16 +7,16 @@ import { cn } from '@/lib/utils';
 const INTRO_TEXT =
   "Hi, I'm Yaswanth, an AWS DevOps Engineer. I work with AWS, Terraform, Docker, Kubernetes, and CI/CD to build cloud infrastructure and automate application deployments. I enjoy solving real infrastructure problems and turning manual processes into simple, automated solutions.";
 
-// Key phrase highlighting configuration in template emerald & mint green
+// Key phrase highlighting configuration in Terracotta and warm espresso
 const HIGHLIGHTS: { phrase: string; className: string }[] = [
-  { phrase: 'AWS DevOps Engineer', className: 'text-[#00DC82] font-bold' },
-  { phrase: 'Yaswanth', className: 'text-[#FFFFFF] font-bold' },
-  { phrase: 'AWS', className: 'text-[#34D399] font-semibold' },
-  { phrase: 'Terraform', className: 'text-[#34D399] font-semibold' },
-  { phrase: 'Docker', className: 'text-[#34D399] font-semibold' },
-  { phrase: 'Kubernetes', className: 'text-[#34D399] font-semibold' },
-  { phrase: 'CI/CD', className: 'text-[#00DC82] font-semibold' },
-  { phrase: 'automated solutions', className: 'text-[#00DC82] font-semibold' },
+  { phrase: 'AWS DevOps Engineer', className: 'text-[#B4532A] font-bold' },
+  { phrase: 'Yaswanth', className: 'text-[#2A211B] font-extrabold' },
+  { phrase: 'AWS', className: 'text-[#B4532A] font-semibold' },
+  { phrase: 'Terraform', className: 'text-[#B4532A] font-semibold' },
+  { phrase: 'Docker', className: 'text-[#B4532A] font-semibold' },
+  { phrase: 'Kubernetes', className: 'text-[#B4532A] font-semibold' },
+  { phrase: 'CI/CD', className: 'text-[#B4532A] font-bold' },
+  { phrase: 'automated solutions', className: 'text-[#B4532A] font-bold' },
 ];
 
 export interface TypingIntroductionProps {
@@ -50,7 +50,18 @@ export const TypingIntroduction: React.FC<TypingIntroductionProps> = ({ classNam
   };
 
   useEffect(() => {
-    startAnimation();
+    let count = 0;
+    const total = INTRO_TEXT.length;
+
+    intervalRef.current = setInterval(() => {
+      count += 1;
+      setDisplayedChars(count);
+
+      if (count >= total) {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        setIsDone(true);
+      }
+    }, 18);
 
     return () => {
       if (intervalRef.current) {
@@ -90,11 +101,11 @@ export const TypingIntroduction: React.FC<TypingIntroductionProps> = ({ classNam
 
       <p
         aria-hidden="true"
-        className="text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] leading-[1.68] text-[#9CA3AF] font-normal min-h-[5.5rem] sm:min-h-[5rem] select-text"
+        className="text-[16px] sm:text-[17px] md:text-[18px] lg:text-[19px] leading-[1.68] text-[#7A6D65] font-normal min-h-[5.5rem] sm:min-h-[5rem] select-text"
       >
         {renderFormattedText(currentSubstr)}
         <span
-          className="inline-block font-mono text-[#00DC82] font-bold ml-1 select-none animate-terminal-cursor align-baseline"
+          className="inline-block font-mono text-[#B4532A] font-bold ml-1 select-none animate-terminal-cursor align-baseline"
           aria-hidden="true"
         >
           ▌
@@ -106,7 +117,7 @@ export const TypingIntroduction: React.FC<TypingIntroductionProps> = ({ classNam
           onClick={startAnimation}
           type="button"
           title="Replay typing animation"
-          className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 mt-2 inline-flex items-center gap-1.5 text-[11px] font-mono text-[#64748B] hover:text-[#00DC82] cursor-pointer"
+          className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 mt-2 inline-flex items-center gap-1.5 text-[11px] font-mono text-[#7A6D65] hover:text-[#B4532A] cursor-pointer"
         >
           <RotateCw className="w-3 h-3" />
           <span>Replay typing</span>

@@ -16,14 +16,14 @@ export const WireframeGlobe: React.FC<WireframeGlobeProps> = ({ className }) => 
       )}
       aria-hidden="true"
     >
-      {/* Outer emerald halo glow */}
-      <div className="absolute inset-0 rounded-full bg-[#00DC82]/12 blur-3xl" />
-      <div className="absolute w-[80%] h-[80%] rounded-full bg-[#34D399]/12 blur-2xl" />
+      {/* Outer terracotta halo glow */}
+      <div className="absolute inset-0 rounded-full bg-[#B4532A]/10 blur-3xl" />
+      <div className="absolute w-[80%] h-[80%] rounded-full bg-[#E8B89C]/15 blur-2xl" />
 
       {/* SVG 3D Wireframe Globe with latitude, longitude & rotating radar lines */}
       <svg
         viewBox="0 0 400 400"
-        className="w-full h-full text-[#00DC82] opacity-80 animate-wireframe-spin"
+        className="w-full h-full text-[#B4532A] opacity-80 animate-wireframe-spin"
         fill="none"
         stroke="currentColor"
         strokeWidth="1"
@@ -64,11 +64,11 @@ export const WireframeGlobe: React.FC<WireframeGlobeProps> = ({ className }) => 
         />
 
         {/* Dynamic Nodes / Coordinates on Globe */}
-        <circle cx="270" cy="140" r="3" fill="#00DC82" />
-        <circle cx="120" cy="250" r="3.5" fill="#00DC82" />
-        <circle cx="310" cy="220" r="2.5" fill="#34D399" />
-        <circle cx="150" cy="110" r="3" fill="#00DC82" />
-        <circle cx="220" cy="300" r="2.5" fill="#34D399" />
+        <circle cx="270" cy="140" r="3" fill="#FFB800" />
+        <circle cx="120" cy="250" r="3.5" fill="#FFB800" />
+        <circle cx="310" cy="220" r="2.5" fill="#DCE9DF" />
+        <circle cx="150" cy="110" r="3" fill="#FFB800" />
+        <circle cx="220" cy="300" r="2.5" fill="#DCE9DF" />
       </svg>
     </div>
   );

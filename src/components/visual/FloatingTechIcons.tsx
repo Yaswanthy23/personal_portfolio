@@ -60,7 +60,7 @@ const TECH_ICONS: TechIconDef[] = [
   {
     id: 'linux',
     name: 'Linux',
-    color: '#FCC624',
+    color: '#D99B00',
     size: 38,
     opacity: 0.45,
     initialX: 8,
@@ -181,9 +181,9 @@ const TECH_ICONS: TechIconDef[] = [
   {
     id: 'github',
     name: 'GitHub',
-    color: '#F8FAFC',
+    color: '#24292F',
     size: 36,
-    opacity: 0.40,
+    opacity: 0.48,
     initialX: 3,
     initialY: 46,
     vx: 0.42,
@@ -272,6 +272,7 @@ export const FloatingTechIcons: React.FC<FloatingTechIconsProps> = ({ className 
 
     // Check reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
     // Initialize particle states in pixel coordinates
     const particles = TECH_ICONS.map((item) => ({

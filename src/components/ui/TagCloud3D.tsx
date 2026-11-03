@@ -271,18 +271,18 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ className }) => {
       const sinY = Math.sin(state.angleY);
       const cosY = Math.cos(state.angleY);
 
-      // Background ambient holographic rings & center glow in template emerald
+      // Background ambient holographic rings & center glow
       ctx.save();
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius * 0.95, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(23, 38, 29, 0.45)';
+      ctx.strokeStyle = 'rgba(232, 184, 156, 0.2)';
       ctx.lineWidth = 1;
       ctx.stroke();
 
       ctx.beginPath();
       ctx.arc(centerX, centerY, radius * 0.55, 0, Math.PI * 2);
       ctx.setLineDash([3, 4]);
-      ctx.strokeStyle = 'rgba(0, 220, 130, 0.12)';
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
       ctx.lineWidth = 1;
       ctx.stroke();
       ctx.setLineDash([]);
@@ -411,29 +411,29 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ className }) => {
           const bh = textH + padY * 2;
           
           drawRoundedBox(ctx, bx, by, bw, bh, r);
-          ctx.fillStyle = 'rgba(0, 220, 130, 0.22)';
+          ctx.fillStyle = 'rgba(232, 184, 156, 0.25)';
           ctx.fill();
-          ctx.strokeStyle = 'rgba(0, 220, 130, 0.85)';
+          ctx.strokeStyle = '#E8B89C';
           ctx.lineWidth = 1.2;
-          ctx.shadowColor = '#00DC82';
+          ctx.shadowColor = '#E8B89C';
           ctx.shadowBlur = 10;
           ctx.stroke();
         }
 
-        // Color assignment based on category and depth in Codespot template palette
-        let textColor = '#9CA3AF';
+        // Color assignment based on category and depth in Terracotta & Warm Linen theme
+        let textColor = '#F5EBE1';
         if (isThisHovered) {
-          textColor = '#00DC82';
+          textColor = '#FFFFFF';
         } else if (item.tag.category === 'core') {
-          textColor = item.z > 0 ? '#00DC82' : '#059669';
+          textColor = item.z > 0 ? '#FFFFFF' : '#E8B89C';
         } else if (item.tag.category === 'aws') {
-          textColor = item.z > 0 ? '#34D399' : '#10B981';
+          textColor = item.z > 0 ? '#FFFFFF' : '#F5EBE1';
         } else if (item.tag.category === 'k8s') {
-          textColor = item.z > 0 ? '#6EE7B7' : '#059669';
+          textColor = item.z > 0 ? '#E8B89C' : '#D4A88C';
         } else if (item.tag.category === 'devops') {
-          textColor = item.z > 0 ? '#00DC82' : '#047857';
+          textColor = item.z > 0 ? '#FFFFFF' : '#E8B89C';
         } else {
-          textColor = item.z > 0 ? '#FFFFFF' : '#9CA3AF';
+          textColor = item.z > 0 ? '#FFFFFF' : '#F5EBE1';
         }
 
         ctx.fillStyle = textColor;
@@ -482,25 +482,25 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ className }) => {
     <div
       ref={containerRef}
       className={cn(
-        'relative flex flex-col items-center justify-between p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#0D1410]/95 via-[#080D0A]/95 to-[#050806]/95 border border-[#17261D] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] backdrop-blur-sm select-none w-full max-w-[460px] min-h-[460px] mx-auto overflow-hidden',
+        'relative flex flex-col items-center justify-between p-4 sm:p-5 rounded-2xl bg-[#943E19] border border-[#C4653D] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.4)] backdrop-blur-sm select-none w-full max-w-[460px] min-h-[460px] mx-auto overflow-hidden',
         className
       )}
     >
       {/* Ambient background glows */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full bg-[#00DC82]/15 blur-3xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] rounded-full bg-[#E8B89C]/15 blur-3xl pointer-events-none"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full bg-[#34D399]/10 blur-2xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full bg-[#FFFFFF]/10 blur-2xl pointer-events-none"
         aria-hidden="true"
       />
 
       {/* Header Bar */}
-      <div className="relative z-20 flex items-center justify-between w-full pb-2.5 border-b border-[#17261D] text-xs font-mono">
-        <div className="flex items-center gap-1.5 text-[#00DC82]">
-          <Sparkles className="h-3.5 w-3.5 animate-pulse text-[#00DC82]" />
-          <span className="font-bold tracking-wider uppercase text-[11px] text-[#00DC82]">INTERACTIVE SKILLS SPHERE</span>
+      <div className="relative z-20 flex items-center justify-between w-full pb-2.5 border-b border-[#C4653D] text-xs font-mono">
+        <div className="flex items-center gap-1.5 text-[#E8B89C]">
+          <Sparkles className="h-3.5 w-3.5 animate-pulse text-[#E8B89C]" />
+          <span className="font-bold tracking-wider uppercase text-[11px] text-[#E8B89C]">INTERACTIVE SKILLS SPHERE</span>
         </div>
 
         {/* Action Controls */}
@@ -509,7 +509,7 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ className }) => {
             type="button"
             onClick={() => setIsPaused((prev) => !prev)}
             title={isPaused ? 'Resume auto-spin' : 'Pause auto-spin'}
-            className="p-1 rounded bg-[#0D1410] border border-[#17261D] text-[#9CA3AF] hover:text-[#00DC82] hover:border-[#00DC82]/50 transition-colors cursor-pointer"
+            className="p-1 rounded bg-[#7D3414] border border-[#C4653D] text-[#F5EBE1] hover:text-[#FFFFFF] hover:border-[#E8B89C] transition-colors cursor-pointer"
           >
             {isPaused ? <Play className="h-3 w-3" /> : <Pause className="h-3 w-3" />}
           </button>
@@ -518,14 +518,14 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ className }) => {
             type="button"
             onClick={handleResetOrientation}
             title="Reset sphere orientation"
-            className="p-1 rounded bg-[#0D1410] border border-[#17261D] text-[#9CA3AF] hover:text-[#00DC82] hover:border-[#00DC82]/50 transition-colors cursor-pointer"
+            className="p-1 rounded bg-[#7D3414] border border-[#C4653D] text-[#F5EBE1] hover:text-[#FFFFFF] hover:border-[#E8B89C] transition-colors cursor-pointer"
           >
             <Compass className="h-3 w-3" />
           </button>
 
-          <div className="flex items-center gap-1 text-[#64748B] text-[10px] pl-1">
+          <div className="flex items-center gap-1 text-[#F5EBE1]/80 text-[10px] pl-1">
             <RotateCw
-              className={cn('h-3 w-3 text-[#00DC82]', !isPaused && 'animate-spin')}
+              className={cn('h-3 w-3 text-[#E8B89C]', !isPaused && 'animate-spin')}
               style={{ animationDuration: '9s' }}
             />
             <span className="hidden sm:inline">DRAG TO ROTATE</span>
@@ -543,14 +543,14 @@ export const TagCloud3D: React.FC<TagCloud3DProps> = ({ className }) => {
       </div>
 
       {/* Footer Info / Selected Tag Indicator */}
-      <div className="relative z-20 w-full pt-2.5 border-t border-[#17261D] flex items-center justify-between text-[11px] font-mono text-[#9CA3AF]">
+      <div className="relative z-20 w-full pt-2.5 border-t border-[#C4653D] flex items-center justify-between text-[11px] font-mono text-[#F5EBE1]">
         <div className="flex items-center gap-1.5 min-w-0 pr-2">
-          <span className="text-[#64748B] shrink-0">Active Node:</span>
+          <span className="text-[#F5EBE1]/70 shrink-0">Active Node:</span>
           <span className="text-[#FFFFFF] font-semibold truncate">
             {activeCategory}
           </span>
         </div>
-        <span className="text-[10px] text-[#00DC82] font-semibold shrink-0 bg-[#00DC82]/15 px-2 py-0.5 rounded border border-[#00DC82]/30">
+        <span className="text-[10px] text-[#2A211B] font-semibold shrink-0 bg-[#E8B89C] px-2 py-0.5 rounded border border-[#E8B89C]">
           {SKILL_TAGS.length}+ Skills
         </span>
       </div>
